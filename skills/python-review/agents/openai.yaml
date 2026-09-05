@@ -1,0 +1,8 @@
+interface:
+  display_name: Python Correctness Review
+  short_description: Review reachable defects, not stylistic preferences.
+  default_prompt: Use $python-review for this task. Follow repository instructions,
+    inspect the relevant code and environment, and report verified results and remaining
+    gaps.
+policy:
+  allow_implicit_invocation: true

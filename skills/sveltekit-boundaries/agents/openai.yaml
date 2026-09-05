@@ -1,0 +1,8 @@
+interface:
+  display_name: SvelteKit Server and Client Boundaries
+  short_description: Keep SvelteKit secrets, requests, and browser state separated
+  default_prompt: Use $sveltekit-boundaries for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: true

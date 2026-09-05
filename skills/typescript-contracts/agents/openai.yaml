@@ -1,0 +1,8 @@
+interface:
+  display_name: TypeScript Contracts and Rust Boundaries
+  short_description: Keep runtime data, generated types, and domain meaning aligned
+  default_prompt: Use $typescript-contracts for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: true

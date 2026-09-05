@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Build Diagnostics"
+  short_description: "Find build causes before changing caches, flags, or architecture"
+  default_prompt: "Use $rust-build-diagnostics for this task. Follow repository instructions, inspect the relevant code, and report verified results and remaining gaps."
+policy:
+  allow_implicit_invocation: true

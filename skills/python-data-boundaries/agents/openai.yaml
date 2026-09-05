@@ -1,0 +1,8 @@
+interface:
+  display_name: Python Data Boundaries
+  short_description: Preserve units, time, precision, and data semantics.
+  default_prompt: Use $python-data-boundaries for this task. Follow repository instructions,
+    inspect the relevant code and environment, and report verified results and remaining
+    gaps.
+policy:
+  allow_implicit_invocation: true

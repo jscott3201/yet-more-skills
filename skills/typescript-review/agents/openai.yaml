@@ -1,0 +1,8 @@
+interface:
+  display_name: TypeScript and UI Review
+  short_description: Find consequential UI defects and verify the evidence
+  default_prompt: Use $typescript-review for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: false

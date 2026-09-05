@@ -1,0 +1,3 @@
+interface:
+  display_name: "Bounded PR Slice"
+  short_description: "Shape one coherent, reviewable PR slice"

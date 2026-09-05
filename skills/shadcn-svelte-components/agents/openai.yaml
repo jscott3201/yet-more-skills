@@ -1,0 +1,8 @@
+interface:
+  display_name: shadcn Svelte Components
+  short_description: Compose Svelte-native shadcn components safely
+  default_prompt: Use $shadcn-svelte-components for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: true

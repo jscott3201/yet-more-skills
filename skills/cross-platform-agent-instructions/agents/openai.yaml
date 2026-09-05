@@ -1,0 +1,3 @@
+interface:
+  display_name: "Cross Platform Agent Instructions"
+  short_description: "Share agent guidance across Codex and OpenCode"

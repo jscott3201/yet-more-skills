@@ -1,0 +1,3 @@
+interface:
+  display_name: "Repository Grounding"
+  short_description: "Pin repository state before dependent work"

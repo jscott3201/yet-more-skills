@@ -1,0 +1,8 @@
+interface:
+  display_name: Python Performance Engineering
+  short_description: Measure Python and native costs before optimizing
+  default_prompt: Use $python-performance for this task. Follow repository instructions,
+    inspect the relevant code and environment, and report verified results and remaining
+    gaps.
+policy:
+  allow_implicit_invocation: true

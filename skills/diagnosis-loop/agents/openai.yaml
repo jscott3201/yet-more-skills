@@ -1,0 +1,3 @@
+interface:
+  display_name: "Diagnosis Loop"
+  short_description: "Evidence-first diagnosis for hard bugs"

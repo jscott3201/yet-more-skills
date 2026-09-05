@@ -1,0 +1,7 @@
+interface:
+  display_name: UI Data, Cache, and Forms
+  short_description: Separate confirmed data, local drafts, and mutation outcomes
+  default_prompt: Use $ui-data-forms for this task. Preserve repository instructions and supported versions.
+    Inspect the relevant source, use only appropriate tools, and report actual evidence and unrun checks.
+policy:
+  allow_implicit_invocation: true

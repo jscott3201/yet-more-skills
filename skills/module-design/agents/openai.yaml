@@ -1,0 +1,3 @@
+interface:
+  display_name: "Module Design"
+  short_description: "Design deep, testable module interfaces"

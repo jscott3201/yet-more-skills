@@ -1,0 +1,8 @@
+interface:
+  display_name: Python Workflow
+  short_description: Ground Python work in the actual project and interpreter
+  default_prompt: Use $python-workflow for this task. Follow repository instructions,
+    inspect the relevant code and environment, and report verified results and remaining
+    gaps.
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: UI CI and Release Evidence
+  short_description: Keep checks focused and qualify the release artifact
+  default_prompt: Use $ui-ci-release for this task. Preserve repository instructions and supported versions.
+    Inspect the relevant source, use only appropriate tools, and report actual evidence and unrun checks.
+policy:
+  allow_implicit_invocation: false

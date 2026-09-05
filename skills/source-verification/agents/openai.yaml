@@ -1,0 +1,3 @@
+interface:
+  display_name: "Source Verification"
+  short_description: "Verify critical claims from primary evidence"

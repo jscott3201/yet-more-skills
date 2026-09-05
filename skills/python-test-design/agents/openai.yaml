@@ -1,0 +1,8 @@
+interface:
+  display_name: Python Behavioral Testing
+  short_description: Test boundaries, failure modes, and independent expectations
+  default_prompt: Use $python-test-design for this task. Follow repository instructions,
+    inspect the relevant code and environment, and report verified results and remaining
+    gaps.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Design Interview"
+  short_description: "Stress-test a design through decision rounds"
+policy:
+  allow_implicit_invocation: false

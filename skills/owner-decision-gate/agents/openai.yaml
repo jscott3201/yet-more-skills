@@ -1,0 +1,3 @@
+interface:
+  display_name: "Owner Decision Gate"
+  short_description: "Resolve material choices before implementation"

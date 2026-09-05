@@ -1,0 +1,6 @@
+interface:
+  display_name: "Parallel Portfolio"
+  short_description: "Run two isolated PR lanes safely"
+  default_prompt: "Use $parallel-portfolio to coordinate two disjoint implementation lanes from one exact base through a frozen integration head."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,8 @@
+interface:
+  display_name: React Components and State
+  short_description: Keep React state minimal and effects purposeful
+  default_prompt: Use $react-components-state for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: true

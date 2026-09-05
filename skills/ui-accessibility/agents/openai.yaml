@@ -1,0 +1,8 @@
+interface:
+  display_name: UI Accessibility
+  short_description: Make critical UI workflows operable beyond pointer interaction
+  default_prompt: Use $ui-accessibility for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: true

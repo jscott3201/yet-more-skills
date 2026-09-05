@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Unsafe and FFI Review"
+  short_description: "Review unsafe boundaries with invariants and targeted evidence"
+  default_prompt: "Use $rust-unsafe-ffi for this task. Follow repository instructions, inspect the relevant code, and report verified results and remaining gaps."
+policy:
+  allow_implicit_invocation: true

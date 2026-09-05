@@ -1,0 +1,8 @@
+interface:
+  display_name: UI Design and Visual Review
+  short_description: Shape usable product screens and verify the visual result
+  default_prompt: Use $ui-design-review for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: false

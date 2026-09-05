@@ -1,0 +1,8 @@
+interface:
+  display_name: shadcn React Components
+  short_description: Compose the installed shadcn primitives without losing semantics
+  default_prompt: Use $shadcn-react-components for this task. Preserve repository instructions and supported
+    versions. Inspect the relevant source, use only appropriate tools, and report actual evidence and
+    unrun checks.
+policy:
+  allow_implicit_invocation: true

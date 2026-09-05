@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Memory and Data Layout"
+  short_description: "Reduce allocation and copying without lifetime or memory traps"
+  default_prompt: "Use $rust-memory-layout for this task. Follow repository instructions, inspect the relevant code, and report verified results and remaining gaps."
+policy:
+  allow_implicit_invocation: true

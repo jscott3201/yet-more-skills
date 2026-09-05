@@ -1,0 +1,496 @@
+{
+  "pack": "yet-more-skills",
+  "reviewed_on": "2026-09-05",
+  "skills": [
+    {
+      "name": "rust-workflow",
+      "title": "Rust Workflow",
+      "description": "Orient a substantial Rust task: map the workspace, choose validation and specialist skills, and coordinate agent work. Explicit entry point; not required for tiny edits.",
+      "group": "core",
+      "implicit": false
+    },
+    {
+      "name": "rust-api-design",
+      "title": "Rust API and Ownership",
+      "description": "Design or refactor Rust APIs, ownership, traits, and error boundaries. Use for semantic interface changes, not test-runner configuration or speculative optimization.",
+      "group": "core",
+      "implicit": true
+    },
+    {
+      "name": "rust-nextest",
+      "title": "Rust Nextest",
+      "description": "Select, run, diagnose, or configure Rust tests with cargo-nextest. Covers profiles, filters, resource limits, doctests, and truthful test results; not test design alone.",
+      "group": "core",
+      "implicit": true
+    },
+    {
+      "name": "rust-test-design",
+      "title": "Rust Behavioral Testing",
+      "description": "Create or strengthen Rust regression, property, differential, fuzz, and concurrency tests. Use when evidence is missing or weak; use rust-nextest for runner mechanics.",
+      "group": "core",
+      "implicit": true
+    },
+    {
+      "name": "rust-performance",
+      "title": "Rust Performance Engineering",
+      "description": "Profile, benchmark, or optimize Rust latency, throughput, CPU, or memory. Requires a workload and correctness contract; not a license for speculative rewrites.",
+      "group": "core",
+      "implicit": true
+    },
+    {
+      "name": "rust-memory-layout",
+      "title": "Rust Memory and Data Layout",
+      "description": "Investigate Rust allocations, copies, buffer retention, collection layout, and cache locality. Use for measured memory or data-access bottlenecks, not blanket clone removal.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-async-concurrency",
+      "title": "Rust Async and Concurrency",
+      "description": "Design or debug Rust async lifecycles, cancellation, deadlines, locks, channels, and backpressure. Use for concurrent behavior; not a blanket conversion to async.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-protocol-codecs",
+      "title": "Rust Protocols and Codecs",
+      "description": "Implement or review Rust wire codecs and protocol state machines, especially BACnet and Modbus. Use for framing, conformance, identity, bounds, or serial timing behavior.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-storage-durability",
+      "title": "Rust Storage and Durability",
+      "description": "Implement or review Rust WAL, recovery, snapshots, transactions, storage epochs, and derived indexes. Use for persistence correctness and measured storage-path changes.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-numerics-simd",
+      "title": "Rust Numerics and SIMD",
+      "description": "Optimize or validate Rust numerical kernels, SIMD, vector scoring, and deterministic floating-point behavior. Use for arithmetic/data-parallel changes, not generic performance work.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-unsafe-ffi",
+      "title": "Rust Unsafe and FFI Review",
+      "description": "Audit Rust unsafe blocks, raw pointers, FFI, layout, and synchronization soundness. Use when a boundary exists or is proposed; never bypass a repository ban on unsafe code.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-python-bindings",
+      "title": "Rust Python Bindings",
+      "description": "Plan or implement a mixed Rust/Python binding change: map PyO3 contracts and select ownership, async, free-threading, buffer, or wheel checks. Use for the boundary as a whole, not pure Rust or pure Python work.",
+      "group": "bindings",
+      "implicit": true
+    },
+    {
+      "name": "rust-workspace-dependencies",
+      "title": "Rust Workspace and Dependencies",
+      "description": "Change or investigate Cargo workspaces, feature graphs, dependencies, MSRV, no_std, and crate boundaries. Use for build graph or compatibility work, not automatic mass updates.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-build-diagnostics",
+      "title": "Rust Build Diagnostics",
+      "description": "Diagnose Rust compiler, linker, feature, or slow-build problems. Use for failing or inefficient builds; preserve useful caches and do not suppress correctness checks.",
+      "group": "specialist",
+      "implicit": true
+    },
+    {
+      "name": "rust-ci-release",
+      "title": "Rust CI and Release Validation",
+      "description": "Plan or review Rust PR gates, native test matrices, packaging, or release evidence. Explicit workflow; does not authorize CI changes, publishing, tags, or merges.",
+      "group": "specialist",
+      "implicit": false
+    },
+    {
+      "name": "rust-review",
+      "title": "Rust Semantic Review",
+      "description": "Review a Rust patch for concrete correctness, performance, API, and test gaps. Use for code review; do not create extra approval loops or rewrite code without authorization.",
+      "group": "core",
+      "implicit": true
+    },
+    {
+      "name": "python-workflow",
+      "title": "Python Workflow",
+      "description": "Orient a substantial Python implementation or refactor: inspect interpreter, packaging, public contracts, tests, and native boundaries. Explicit entry point; not needed for tiny edits.",
+      "group": "python",
+      "implicit": false
+    },
+    {
+      "name": "python-api-typing",
+      "title": "Python APIs and Typing",
+      "description": "Design or review Python public APIs, typing, exceptions, and stubs. Use for semantic interface changes and SDK contracts, not formatter churn or native ownership alone.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-pytest",
+      "title": "Python Pytest",
+      "description": "Select, run, configure, or diagnose Python tests with pytest. Covers collection, plugins, asyncio scopes, resource isolation, installed-package imports, and truthful results; not test design alone.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-test-design",
+      "title": "Python Behavioral Testing",
+      "description": "Create Python regression, property, stateful, differential, and adversarial tests. Use for missing behavioral evidence and cross-language contracts; use python-pytest for runner mechanics.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-performance",
+      "title": "Python Performance Engineering",
+      "description": "Profile, benchmark, or optimize Python CPU, latency, throughput, allocations, startup, or native-call overhead. Requires a representative workload; not a blanket rewrite into Rust.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-async-concurrency",
+      "title": "Python Async and Cancellation",
+      "description": "Design or debug Python asyncio tasks, deadlines, cancellation, backpressure, async resource ownership, and shutdown. Use pyo3-async-lifecycle for the Rust bridge itself.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-threading-workers",
+      "title": "Python Threads and Workers",
+      "description": "Design or debug Python thread/process workers, shared-state synchronization, free-threaded Python behavior, and native thread-pool budgets. Not asyncio-only scheduling or PyO3 module auditing.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-packaging-environments",
+      "title": "Python Packaging and Environments",
+      "description": "Diagnose or change Python environments, dependencies, pyproject metadata, imports, or packaging. Use for uv/pip/build-backend issues; use pyo3-wheel-release for native ABI and wheel qualification.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-data-boundaries",
+      "title": "Python Data Boundaries",
+      "description": "Use for Python serialization, numerical conversion, timestamps, units, missing values, or untrusted data entering protocol, building, and storage APIs. Not a generic dataframe or schema-framework migration.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "python-ci-release",
+      "title": "Python CI and Release",
+      "description": "Use explicitly for Python CI, test gates, native release matrices, package artifacts, and release readiness. Preserve existing workflows; do not publish or add CI without authorization.",
+      "group": "python",
+      "implicit": false
+    },
+    {
+      "name": "python-review",
+      "title": "Python Correctness Review",
+      "description": "Use to review a Python patch for reachable correctness, resource-lifetime, testing, typing, packaging, or native-boundary defects. Not a request for a rewrite, style-only critique, or an extra approval gate.",
+      "group": "python",
+      "implicit": true
+    },
+    {
+      "name": "pyo3-ownership-errors",
+      "title": "PyO3 Ownership and Errors",
+      "description": "Use for PyO3 Python/Rust conversions, object lifetime, pyclass borrows, callbacks, exception mapping, and signature/stub consistency. For ABI packaging or async runtime teardown use the corresponding specialist.",
+      "group": "bindings",
+      "implicit": true
+    },
+    {
+      "name": "pyo3-async-lifecycle",
+      "title": "PyO3 Async Lifecycle",
+      "description": "Use for pyo3-async-runtimes, Tokio/asyncio bridges, synchronous wrappers over async Rust, callbacks, cancellation, and close/drop behavior. Not generic async Python with no native boundary.",
+      "group": "bindings",
+      "implicit": true
+    },
+    {
+      "name": "pyo3-free-threading",
+      "title": "PyO3 Free-Threading",
+      "description": "Use to audit or validate PyO3 on GIL-disabled CPython, including module declarations, synchronization, pyclass mutation, global initialization, and dependency imports. Do not infer support from a build flag alone.",
+      "group": "bindings",
+      "implicit": true
+    },
+    {
+      "name": "pyo3-buffer-performance",
+      "title": "PyO3 Buffers and Performance",
+      "description": "Use for measured Python/Rust boundary overhead, batching, Bytes/memoryview/NumPy exchange, zero-copy ownership, and native thread oversubscription. Not an instruction to replace correct copies with unsafe views.",
+      "group": "bindings",
+      "implicit": true
+    },
+    {
+      "name": "pyo3-wheel-release",
+      "title": "PyO3 Wheels and ABI",
+      "description": "Use explicitly for PyO3/maturin wheels, source distributions, Python ABI compatibility, stubs, native interpreter matrices, and artifact release checks. Not ordinary pure-Python installation or permission to publish.",
+      "group": "bindings",
+      "implicit": false
+    },
+    {
+      "name": "typescript-workflow",
+      "title": "TypeScript UI Workflow",
+      "description": "Orient a substantial TypeScript UI task, map the actual framework and repository checks, and select bounded specialists. Explicit entry point; not required for tiny edits.",
+      "group": "typescript-ui",
+      "implicit": false
+    },
+    {
+      "name": "typescript-contracts",
+      "title": "TypeScript Contracts and Rust Boundaries",
+      "description": "Design or review strict TypeScript APIs, runtime validation, generated Rust/OpenAPI clients, discriminated states, and serialization boundaries. Not a request to rewrite generated code.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "typescript-async-resources",
+      "title": "TypeScript Async Resources",
+      "description": "Implement or review asynchronous UI work, cancellation, request races, bounded streams, workers, and resource cleanup in TypeScript. Applies across React and Svelte.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "vite-build-tooling",
+      "title": "Vite Build and Tooling",
+      "description": "Diagnose Vite, TypeScript, package scripts, bundling, development configuration, and deployment artifacts. Match the installed Vite generation; do not apply Next.js conventions.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "react-components-state",
+      "title": "React Components and State",
+      "description": "Implement or review React components, state ownership, effects, hooks, composition, and forms. Use only in React; do not apply React patterns to Svelte.",
+      "group": "react",
+      "implicit": true
+    },
+    {
+      "name": "react-performance",
+      "title": "React Performance",
+      "description": "Measure and improve React rendering, subscriptions, expensive work, and route loading. Trigger on a concrete performance task, not ordinary React syntax or speculative memoization.",
+      "group": "react",
+      "implicit": true
+    },
+    {
+      "name": "svelte-components-runes",
+      "title": "Svelte Components and Runes",
+      "description": "Implement or review Svelte components and reactive modules, including version-supported runes, snippets, ownership, effects, and external integrations. Not for React components or automatic migrations.",
+      "group": "svelte",
+      "implicit": true
+    },
+    {
+      "name": "sveltekit-boundaries",
+      "title": "SvelteKit Server and Client Boundaries",
+      "description": "Work on an actual SvelteKit application: server/universal load, actions, SSR, request-local state, hydration, and deployment adapters. Do not introduce SvelteKit into a plain Vite SPA.",
+      "group": "svelte",
+      "implicit": true
+    },
+    {
+      "name": "shadcn-react-components",
+      "title": "shadcn React Components",
+      "description": "Add, compose, repair, or restyle shadcn/ui-derived React components. Inspect local owned source and primitive backend first; not for shadcn-svelte or automatic preset migration.",
+      "group": "react",
+      "implicit": true
+    },
+    {
+      "name": "shadcn-svelte-components",
+      "title": "shadcn Svelte Components",
+      "description": "Add or modify shadcn-svelte components and their Svelte/Bits UI composition, bindings, tokens, and accessibility. Do not copy React shadcn JSX or Radix APIs.",
+      "group": "svelte",
+      "implicit": true
+    },
+    {
+      "name": "ui-data-forms",
+      "title": "UI Data, Cache, and Forms",
+      "description": "Design or review UI server-state caching, query identity, editable forms, validation, mutation outcomes, and site/session transitions. Reuse the current framework and data libraries.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-accessibility",
+      "title": "UI Accessibility",
+      "description": "Implement or audit keyboard, focus, semantic controls, form feedback, responsive accessibility, and non-visual alternatives in UI work. Automated checks are evidence, not complete compliance.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-design-review",
+      "title": "UI Design and Visual Review",
+      "description": "Design, polish, or critique a product UI with deliberate hierarchy, typography, layout, states, and responsive behavior. Explicit design pass; preserve established product tokens unless change is requested.",
+      "group": "typescript-ui",
+      "implicit": false
+    },
+    {
+      "name": "ui-operational-workflows",
+      "title": "Building Operations UI Workflows",
+      "description": "Design or review building-automation, FDD, energy, device configuration, and agent-assisted operator screens. Preserve data quality, authority, provenance, and physical-command uncertainty.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-graph-editors",
+      "title": "UI Graph Editors",
+      "description": "Implement or review React Flow or another installed graph editor for equipment topology, authoring, dependency flows, selection, and graph persistence. Not a generic instruction to add a canvas.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-tables-large-data",
+      "title": "UI Tables and Large Data",
+      "description": "Build or review dense asset tables, large lists, pagination, sorting, filtering, selection, and virtualization. Use the installed framework adapters; do not assume all rows are loaded.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-vitest-testing",
+      "title": "Vitest and Component Testing",
+      "description": "Write, select, or debug Vitest and framework component tests, including Testing Library and browser-mode boundaries. Preserve repository isolation and avoid false-green test selections.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-playwright-validation",
+      "title": "Playwright Browser Validation",
+      "description": "Validate UI behavior in an actual browser using an existing Playwright setup: critical flows, keyboard/focus, screenshots, traces, and deployment-like behavior. No blind snapshot updates.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-browser-performance",
+      "title": "Browser UI Performance",
+      "description": "Investigate or optimize browser interaction latency, network waterfalls, layout, bundles, retained memory, and large-data rendering. Requires measured evidence; not a generic micro-optimization checklist.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "ui-security-boundaries",
+      "title": "UI Security Boundaries",
+      "description": "Review or implement browser trust boundaries: untrusted content, URLs, runtime config, authentication state, CSRF integration, storage, imports, and agent-proposed actions. Defensive UI work, not a security certification.",
+      "group": "typescript-ui",
+      "implicit": true
+    },
+    {
+      "name": "typescript-review",
+      "title": "TypeScript and UI Review",
+      "description": "Perform a focused TypeScript/UI correctness review or review a frontend diff for reachable defects, missing evidence, data races, accessibility, and contract drift. Not a new PR approval gate.",
+      "group": "typescript-ui",
+      "implicit": false
+    },
+    {
+      "name": "ui-ci-release",
+      "title": "UI CI and Release Evidence",
+      "description": "Plan or execute authorized frontend checks and staged release qualification for TypeScript, Vite, React, or Svelte artifacts. Explicit delivery task; does not authorize new CI, publication, or deployment.",
+      "group": "typescript-ui",
+      "implicit": false
+    },
+    {
+      "name": "behavior-first-implementation",
+      "title": "Behavior First Implementation",
+      "description": "Implement an authorized bounded change test-first through public behavior seams using vertical red-green-refactor slices. Use only during implementation when the user or brief calls for TDD; not for diagnosis-only or review work.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "bounded-pr-slice",
+      "title": "Bounded PR Slice",
+      "description": "Convert a grounding record into one coherent PR-sized implementation cycle with explicit scope, ownership, evidence, gates, and replan triggers.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "cross-platform-agent-instructions",
+      "title": "Cross Platform Agent Instructions",
+      "description": "Create or review shared AGENTS.md and Agent Skills for Codex and OpenCode with version-verified discovery, precise triggers, progressive disclosure, and staged config changes. Use only for dual-harness agent configuration, not application code.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "design-interview",
+      "title": "Design Interview",
+      "description": "Run a multi-round decision-tree interview only when the user explicitly asks to be grilled, interviewed, or to stress-test a design. Find facts independently and ask only decisions the user owns.",
+      "group": "workflow",
+      "implicit": false
+    },
+    {
+      "name": "diagnosis-loop",
+      "title": "Diagnosis Loop",
+      "description": "Diagnose hard bugs and performance regressions with a symptom-specific feedback loop, minimized reproduction, falsifiable hypotheses, and bounded evidence. Use for diagnosis or debugging requests; stop before fixing unless the user also requested a fix.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "domain-language",
+      "title": "Domain Language",
+      "description": "Clarify ambiguous domain terminology, stress-test definitions with scenarios, and propose terminology-specific glossary or ADR wording grounded in code and repository conventions. Use when naming or domain-language meaning is the task; not for general architecture or product decisions, and documentation edits require scope.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "handoff-continuity",
+      "title": "Handoff Continuity",
+      "description": "Preserve exact repository and delivery state in a compact standalone handoff without replaying the completed session transcript.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "immutable-pr-review",
+      "title": "Immutable PR Review",
+      "description": "Apply the shared read-only review protocol to one pull request at exact base/head SHAs and return a compact evidence-backed packet.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "module-design",
+      "title": "Module Design",
+      "description": "Analyze or design module interfaces, seams, invariants, and dependency adapters for high leverage and locality. Use for architecture design, refactor planning, and testability questions; not as permission to implement.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "orchestrate",
+      "title": "Orchestrate",
+      "description": "Deliver one repository or PR-sized code change through grounding, bounded implementation, immutable review, exact-head gates, merge authorization, and handoff. Use for end-to-end delivery; not for explanation-only work or a user-requested direct local edit.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "owner-decision-gate",
+      "title": "Owner Decision Gate",
+      "description": "Resolve material PR, milestone, contract, infrastructure, and authority choices with concise recommended user questions before implementation depends on them.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "parallel-portfolio",
+      "title": "Parallel Portfolio",
+      "description": "Coordinate an explicitly authorized portfolio of up to two disjoint product PR lanes from one exact base through isolated worktrees, per-lane immutable review, a root-owned integration barrier, and one frozen delivery head. Use only when explicitly invoked and repository-local law permits parallel writers; not for ordinary delivery or shared-authority changes.",
+      "group": "workflow",
+      "implicit": false
+    },
+    {
+      "name": "pr-gate-loop",
+      "title": "PR Gate Loop",
+      "description": "Run the authoritative PR gate: one immutable review cycle, one optional batched repair, and one final cycle before mandatory re-planning.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "repository-grounding",
+      "title": "Repository Grounding",
+      "description": "Establish and reuse an exact repository, revision, prerequisite, instruction, worktree, and validation baseline before repository work.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "source-verification",
+      "title": "Source Verification",
+      "description": "Verify decision-critical external or repository claims from bounded primary evidence at a named revision, and make unresolved claims explicitly UNKNOWN.",
+      "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "tracer-bullet-planning",
+      "title": "Tracer Bullet Planning",
+      "description": "Decompose a large plan or specification into serial PR-sized vertical slices with explicit blockers, acceptance evidence, and expand-migrate-contract handling. Use for multi-PR planning; draft before tracker publication.",
+      "group": "workflow",
+      "implicit": true
+    }
+  ]
+}

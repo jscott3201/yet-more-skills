@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Workspace and Dependencies"
+  short_description: "Manage Cargo features and dependencies across crate boundaries"
+  default_prompt: "Use $rust-workspace-dependencies for this task. Follow repository instructions, inspect the relevant code, and report verified results and remaining gaps."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Async and Concurrency"
+  short_description: "Preserve Rust lifecycles under concurrency and cancellation"
+  default_prompt: "Use $rust-async-concurrency for this task. Follow repository instructions, inspect the relevant code, and report verified results and remaining gaps."
+policy:
+  allow_implicit_invocation: true

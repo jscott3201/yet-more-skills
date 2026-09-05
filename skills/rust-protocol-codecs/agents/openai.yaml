@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Protocols and Codecs"
+  short_description: "Keep optimized codecs faithful to wire and state contracts"
+  default_prompt: "Use $rust-protocol-codecs for this task. Follow repository instructions, inspect the relevant code, and report verified results and remaining gaps."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Behavior First Implementation"
+  short_description: "Vertical red-green-refactor implementation"

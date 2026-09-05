@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Semantic Review"
+  short_description: "Find reachable Rust defects and verify the tests that matter"
+  default_prompt: "Use $rust-review for this task. Follow repository instructions, inspect the relevant code, and report verified results and remaining gaps."
+policy:
+  allow_implicit_invocation: true

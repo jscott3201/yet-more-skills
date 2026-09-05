@@ -1,0 +1,8 @@
+interface:
+  display_name: PyO3 Wheels and ABI
+  short_description: Test native wheels, ABI promises, and typed consumers.
+  default_prompt: Use $pyo3-wheel-release for this task. Follow repository instructions,
+    inspect the relevant code and environment, and report verified results and remaining
+    gaps.
+policy:
+  allow_implicit_invocation: false
