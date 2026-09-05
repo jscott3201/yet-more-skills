@@ -47,6 +47,15 @@ SETS.update({'typescript-core': ('typescript-workflow', 'typescript-contracts', 
 
 SETS["workflow"] = ('behavior-first-implementation', 'bounded-pr-slice', 'cross-platform-agent-instructions', 'design-interview', 'diagnosis-loop', 'domain-language', 'handoff-continuity', 'immutable-pr-review', 'module-design', 'orchestrate', 'owner-decision-gate', 'parallel-portfolio', 'pr-gate-loop', 'repository-grounding', 'source-verification', 'tracer-bullet-planning')
 
+# Focused workflow and system-boundary selections.
+SETS.update({
+    'workflow-lite': ('repository-grounding', 'source-verification', 'diagnosis-loop', 'bounded-pr-slice', 'handoff-continuity'),
+    'skill-review-additions': ('simplify-existing-code', 'bounded-prototype', 'agent-tool-boundaries', 'memory-context-hygiene', 'edge-cloud-sync', 'building-fdd-validation', 'ui-equipment-3d'),
+    'agent-systems': ('agent-tool-boundaries', 'memory-context-hygiene'),
+    'building-systems': ('edge-cloud-sync', 'building-fdd-validation'),
+    'equipment-ui': ('ui-equipment-3d',),
+})
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--set', choices=(*SETS, 'full'), default=None,

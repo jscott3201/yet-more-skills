@@ -1,66 +1,29 @@
 ---
 name: immutable-pr-review
-description: Apply the shared read-only review protocol to one pull request at exact base/head SHAs and return a compact evidence-backed packet.
+description: Review a requested PR, patch, or working-tree diff read-only for concrete failures and contract gaps. Use surrounding source and tests; not a demand for a revision packet or authority to edit.
 license: MIT OR Apache-2.0
-metadata:
-  category: review
-  phase: verification
 ---
 
-# Immutable PR Review
+# Evidence-Based PR Review
 
-This skill owns the protocol shared by every review role. A role adds only its review lens; it must not redefine targeting, evidence, severity, permissions, or output rules.
+The directory name remains for existing callers. Review the actual requested change without requiring a special packet, a clean unrelated worktree, a particular agent role, or a revision ledger.
 
-## Target contract
+## Establish the scope
 
-Review only a complete target supplied in this form:
+Identify the PR, supplied patch, or local changes under review. Read applicable instructions, the relevant diff, surrounding implementations, callers, and tests. Inspect missing context with available read tools. An optional code index can help trace dependencies, but source remains the basis for consequential findings.
 
-```text
-REVIEW_TARGET
-owner/repo:
-pull request:
-base SHA:
-head SHA:
-cycle: 1 | 2
-prior finding IDs: N/A | IDs with expected repair state
-required exact-head checks: names, head association, and GREEN | PENDING | FAILED | UNAVAILABLE status
-grounding and evidence references:
-Codebase Memory project/root and coverage:
-scope and exclusions:
-END_REVIEW_TARGET
-```
+For a working-tree review, include the requested uncommitted changes and preserve unrelated work. If unrelated edits make attribution ambiguous, state that limitation rather than resetting them. For a patch-only review without surrounding code, narrow the conclusions accordingly.
 
-Return `INCOMPLETE_TARGET` if a required identity, revision, cycle, or check field is absent. Return `HEAD_MOVED` if live state no longer matches either supplied SHA. Do not infer or silently retarget missing fields.
+Remain read-only by default. Focused execution is appropriate when authorized, safe, and unlikely to alter user data; otherwise reason from source and explain what remains untested. Do not edit, post, approve, commit, push, or merge without separate scope.
 
-## Protocol
+## Follow the failure path
 
-1. Verify owner/repo, PR number, base SHA, head SHA, cycle number, and exact-head checks.
-2. Return `HEAD_MOVED` when the current target differs; never silently review a newer head.
-3. Inspect the full diff plus the surrounding source, ownership boundary, and relevant tests. Consume the supplied Codebase Memory project identity without project discovery, status polling, or index management. Use focused graph tools for cross-file flows, diff impact, and blast radius before broad native search, and check index coverage before exhaustive claims. Patch fragments alone are insufficient.
-4. Use exact-revision remote evidence. Local inspection or focused validation is valid only when local `HEAD` equals the target and the tracked worktree is clean before and after.
-5. Record each required check as GREEN, PENDING, FAILED, or UNAVAILABLE and confirm its head association. Pending checks do not prevent source review. Treat supplied results as shared evidence; do not rerun the same broad suite. Use focused diagnostics only for a concrete finding, conflicting evidence, or an authorized substitute for unavailable CI. Report substitute validation separately; it does not waive a required check.
-6. Remain independent and source-read-only: do not fetch, checkout, edit, stage, commit, push, rewrite refs, post, delegate, approve, request changes, or merge.
-7. Report a blocker/major only with a stable ID, exact location, concrete failure, direct evidence, introduced-versus-pre-existing classification, shipping impact, smallest correction, and regression test.
-8. Treat unsupported concerns, preferences, optional hardening, and unrelated pre-existing defects as non-blocking. A missing test blocks only when tied to a demonstrated unprotected contract failure.
-9. Report each root cause once and defer minor/nit findings. Do not include raw logs, full diffs, or source dumps.
-10. In the final review cycle, recheck prior IDs and repair-caused regressions without broadening scope.
+Look for reachable incorrect behavior: ownership/lifetime errors, cancellation and cleanup gaps, lost or duplicated data, invalid contracts, security boundaries, silent error suppression, and missing consumer coverage. Use the relevant language specialist when needed. Assess performance claims against measurements rather than intuition alone.
 
-Return the compact block directly; use `none` rather than omitting an empty field. Each blocker/major entry must carry its stable ID, severity, exact location, failure scenario and impact, evidence and introduced-by-PR proof, smallest correction, and regression test.
+A useful finding gives its location, triggering input or state, why the behavior fails, its impact, and the smallest correction or regression test. Direct source reasoning can establish a defect even when reproducing it is unsafe or unavailable; label that evidence honestly. Do not demand a runtime exploit or an observed production failure.
 
-```text
-REVIEW_RESULT
-lens: holistic | dataflow
-cycle: 1 | 2
-reviewed base SHA:
-reviewed head SHA:
-signal: PASS | FIX | REPLAN_REQUIRED | HEAD_MOVED | INCOMPLETE_TARGET | WORKTREE_MUTATED
-blocker/major findings: none | stable-ID entries
-minor/nit deferred: none | compact entries
-prior finding recheck: N/A | per-ID status
-exact-head checks:
-evidence and local validation:
-confidence and remaining unknowns:
-END_REVIEW_RESULT
-```
+Separate introduced defects from pre-existing issues. Report a root cause once. Keep preferences, speculative hardening, and nits distinct from blockers. A missing test is most meaningful when tied to a specific unprotected behavior.
 
-Reviewer `PASS` means no blocker/major survives the review evidence threshold. It does not mean required checks are green or authorize merge; only `pr-gate-loop` can declare the overall gate passed. Preserve each check's actual status even in a clean review packet. Return `FIX` for a repairable blocker/major in cycle one, `REPLAN_REQUIRED` when the bounded review cannot converge, `HEAD_MOVED` for a changed target, or `WORKTREE_MUTATED` when local validation altered tracked state. The orchestrator deduplicates packets and owns any authorized remote posting.
+## Return a bounded result
+
+Lead with actionable findings, then confidence, validation performed, and material limits. A clean review means no supported issue was found in the inspected scope—not certification, passing CI, or merge permission. If the change moves materially during review, state what was inspected and reassess affected work rather than claiming coverage of unseen code.

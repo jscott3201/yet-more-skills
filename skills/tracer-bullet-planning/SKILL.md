@@ -1,58 +1,32 @@
 ---
 name: tracer-bullet-planning
-description: Decompose a large plan or specification into serial PR-sized vertical slices with explicit blockers, acceptance evidence, and expand-migrate-contract handling. Use for multi-PR planning; draft before tracker publication.
+description: Plan a large requested outcome as reviewable vertical PR slices with dependencies and meaningful acceptance evidence. Preserve implementation freedom; not automatic ticket publication or a rigid execution program.
 license: MIT OR Apache-2.0
 metadata:
-  compatibility: "Codex and OpenCode 1.x"
-  upstream-repository: "https://github.com/mattpocock/skills"
-  upstream-commit: "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
-  adaptation: "Bounded Codex/OpenCode workflow"
+  upstream-repository: https://github.com/mattpocock/skills
+  adaptation: Workflow simplification; retained upstream attribution
 ---
 
-# Tracer Bullet Planning
+# Tracer-Bullet Planning
 
-Turn a large outcome into a dependency graph of coherent future delivery cycles. Planning is read-only by default: issue creation, labels, roadmap updates, and local planning files require explicit scope and live-state verification.
+Turn a broad goal into a sequence of useful capabilities. Read the requested source plan and actual repository before decomposing it. Use available tools to resolve facts, not a compulsory memory service or planning template.
 
-## Ground before slicing
+## Plan through the system
 
-- Read the source plan/specification, applicable instructions, existing roadmap or tracker state, and repository architecture records.
-- Reuse a grounding record when available. Use Codebase Memory to identify source ownership, callers, shared contracts, and blast radius; check coverage before claiming a slice is independent.
-- State the destination, current prerequisites, out-of-scope work, and material unknowns. Resolve owner choices before encoding them as ticket assumptions.
+Prefer a thin working path across the necessary layers over separate batches for every schema, service, and screen. Each slice should leave a verifiable result, or be an explicitly justified step in a compatibility migration. Prefactoring earns its own PR when it leaves the system healthy and makes later work meaningfully easier.
 
-## Draft vertical slices
+For each slice, state its outcome, blockers, key contracts, likely change area, exclusions, and acceptance evidence. Keep implementation choices open until code inspection resolves them. Do not substitute pseudocode or a fixed file list for the behavior that needs to work.
 
-Each slice should:
+Group related slices into milestones only when that helps review or rollout. Avoid both dozens of administrative micro-PRs and a giant unreviewable rewrite. A migration may need expand, migrate, and contract stages; a greenfield component may not need compatibility scaffolding at all. Follow the actual compatibility policy.
 
-- deliver one observable behavior or verifiable capability through the relevant layers;
-- fit one reviewable PR with one source-of-truth story and one sole writer;
-- remain green and useful after it lands, or be an explicitly named compatibility step in a proven migration;
-- declare blockers, owned contracts, likely source surface, exclusions, and executable acceptance evidence;
-- expose a concrete `REPLAN_REQUIRED` trigger when its prerequisite or ownership claim becomes false.
+## Mark useful parallelism
 
-Prefer a thin end-to-end tracer bullet over horizontal “all schema, then all API, then all UI” batches. Prefactoring is its own slice only when it leaves the repository green and measurably enables later behavior.
+Identify independent work such as cloud/edge or backend/UI lanes after settling their shared contracts. Name the integration owner and any combined check. Do not claim independence solely from different folders. A dependency graph is not permission to ignore repository concurrency rules.
 
-Ordinary execution is serial: only one implementation cycle is active. A graph may reveal several unblocked slices, but it does not authorize concurrent writers. Parallel work requires the separately admitted portfolio workflow and disjoint ownership proof.
+Keep routine PR validation light and meaningful. Put larger native-platform matrices, long stress/fuzz runs, recovery campaigns, and release artifact qualification in the appropriate staged lane. Preserve required policy checks and native-only constraints.
 
-For wide compatibility changes that cannot land as one vertical slice, read [expand-migrate-contract.md](references/expand-migrate-contract.md).
+## Leave a workable handoff
 
-## Review the plan
+Recommend the first useful slice and explain what could change the plan. Ask for owner decisions only when credible alternatives materially alter the outcome, risk, or authority. Let the implementing agent revise routine details as evidence arrives.
 
-Present the draft in dependency order and identify the current frontier. Recommend merges or splits where a slice lacks independent value, exceeds one PR, or hides a shared-authority change. Use the owner-decision gate only for material choices; do not require approval for a clearly dominant reversible decomposition detail.
-
-Publish only when requested. Tracker writes must preserve parent issues and existing state, use native dependency links when available, and verify the resulting live graph. Do not label work implementation-ready until its own fresh grounding and bounded slice qualify it.
-
-Use this per-slice record:
-
-```text
-SLICE
-title and outcome:
-blocked by:
-user-visible or verifiable behavior:
-contracts and ownership:
-likely change surface:
-acceptance evidence:
-explicit exclusions:
-risks and replan triggers:
-readiness: PLANNED | NEEDS_DECISION | NEEDS_GROUNDING
-END_SLICE
-```
+Return readable Markdown when planning artifacts are requested; otherwise an outline may suffice. Issue creation, roadmap updates, and external publication require scope. Reuse existing tracker structure rather than inventing a parallel planning authority. Do not pretend a plan is executed work.

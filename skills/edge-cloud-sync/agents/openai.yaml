@@ -1,0 +1,6 @@
+interface:
+  display_name: Edge and Cloud Synchronization
+  short_description: Practical edge and cloud synchronization guidance
+  default_prompt: Use $edge-cloud-sync for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

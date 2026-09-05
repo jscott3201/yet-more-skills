@@ -1,0 +1,6 @@
+interface:
+  display_name: Equipment 3D and Telemetry Views
+  short_description: Practical equipment 3d and telemetry views guidance
+  default_prompt: Use $ui-equipment-3d for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

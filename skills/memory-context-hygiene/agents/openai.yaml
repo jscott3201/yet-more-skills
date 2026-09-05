@@ -1,0 +1,6 @@
+interface:
+  display_name: Memory and Context Hygiene
+  short_description: Practical memory and context hygiene guidance
+  default_prompt: Use $memory-context-hygiene for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

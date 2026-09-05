@@ -1,42 +1,32 @@
 ---
 name: cross-platform-agent-instructions
-description: Create or review shared AGENTS.md and Agent Skills for Codex and OpenCode with version-verified discovery, precise triggers, progressive disclosure, and staged config changes. Use only for dual-harness agent configuration, not application code.
+description: Create, review, or improve agent skills and repository instructions for Codex or another named harness. Check triggers, portability, and real behavior; not application feature work or automatic configuration deployment.
 license: MIT OR Apache-2.0
 metadata:
-  compatibility: "Codex and OpenCode; verify installed versions"
-  upstream-repository: "https://github.com/mattpocock/skills"
-  upstream-commit: "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
-  adaptation: "Bounded Codex/OpenCode workflow"
+  upstream-repository: https://github.com/mattpocock/skills
+  adaptation: Workflow simplification; retained upstream attribution
 ---
 
-# Cross Platform Agent Instructions
+# Skill Authoring and Harness Compatibility
 
-Maintain one semantic source wherever the two harnesses can share it, and isolate platform syntax in thin adapters. Do not duplicate a skill body into two mutable installations.
+Maintain one clear semantic workflow and isolate harness-specific settings. A single-harness task is valid; do not require a second platform, a plugin, or a live configuration migration.
 
-## Verify the live platforms first
+## Inspect before changing
 
-1. Resolve installed Codex/OpenCode versions and read applicable local instruction files.
-2. Inspect existing discovery roots, duplicate IDs, symlinks, invocation policy, agent permissions, and config validators without exposing credentials or session records.
-3. Fetch current official documentation for the exact installed generation before relying on config fields or restart behavior.
-4. Preserve unrelated skills, permissions, plugins, prompts, and broken-but-unrelated links. Treat config changes as startup-sensitive.
+Read the existing skill, relevant repository instructions, supported discovery roots, and installed harness documentation. Check for duplicate names and overlapping triggers. A repository catalog describes the collection; it does not automatically control what a runtime loads.
 
-Read [platform-matrix.md](references/platform-matrix.md) for the verified baseline used when this skill was authored. Re-verify any row that is version-sensitive.
+Use a required `SKILL.md` with a short name and a precise description. Front-load the real task and nearest exclusion so the trigger remains useful when a host shortens metadata. Keep decision-critical guidance in the body and link deeper examples only when needed. Add a script only for repeated deterministic work worth maintaining.
 
-## Author the shared semantic package
+For Codex, put invocation policy and display metadata in `agents/openai.yaml`. Set explicit-only workflows accordingly. Other hosts may ignore that file; verify their equivalent or keep the workflow unexposed there. Prose saying “explicit only” is not a runtime permission boundary. Do not copy another host's command interpolation or hooks into portable instructions as though they execute everywhere.
 
-- Use one lowercase kebab-case directory per skill with a required `SKILL.md`.
-- Keep portable frontmatter to `name`, `description`, `license`, and string-valued `metadata`. Store compatibility as metadata for the shared subset; Codex's validator rejects a top-level `compatibility` field even though OpenCode accepts it. Put Codex UI/invocation settings in `agents/openai.yaml`.
-- Make `description` a precise trigger pointer: what the skill does, when it applies, and the nearest important exclusion.
-- Keep always-needed decisions in `SKILL.md`; move branch-specific procedures and examples into linked references. Add scripts only when deterministic repeated execution earns their maintenance cost.
-- State authorization boundaries in the skill that could otherwise imply edits, Git/GitHub actions, credentials, publication, or destructive work.
-- Use repository-native tool and role names only in platform adapters or clearly conditional text.
+The portable specification and a particular validator can accept different fields. Check the actual target; do not generalize one helper's validation limits into universal runtime claims. See [compatibility notes](references/platform-matrix.md).
 
-For an explicit-only workflow, enforce the platform policy when supported. When a target runtime lacks explicit-only skills, do not assume a prose hint is equivalent; provide a platform command/adapter or leave the skill unexposed there.
+## Improve behavior, not packaging count
 
-## Stage and validate
+Prefer updating an existing skill when the trigger and decision are the same. Add a specialist when it covers a distinct failure boundary. Keep agents, indexes, MCP servers, and browser tools optional unless the task inherently needs them; explain a truthful fallback without fabricating tool access.
 
-Stage configuration-time changes outside the live config while OpenCode is running. Produce the skill directories, platform adapter or allowlist diff, deployment targets, and rollback plan. Validate every skill with the Codex validator and the installed OpenCode discovery diagnostic. Validate a modified OpenCode config with its repository validator and resolved config command before deployment.
+Test a realistic positive trigger, a nearby non-trigger, and a difficult behavior case. Compare old versus revised skill in clean equivalent contexts. Inspect outputs and relevant tool actions, not just whether the skill activated. Record structural checks separately from model execution and never report authored cases as passed evaluations.
 
-Activate only after all OpenCode processes have exited, back up the exact live targets, deploy the validated set, and start a fresh process. A config-file approval is not authority to restart, remove unrelated skills, or overwrite another source.
+## Deploy within scope
 
-Return the canonical source path, activation map per harness/agent, exact validation results, restart requirement, and unresolved compatibility claims.
+Preserve licenses, attribution, unrelated skills, and user customizations. Preview installation changes; do not overwrite or enable hooks, connectors, permissions, CI, or global configuration by implication. Verify discovery in the intended runtime. Restart only when the installed host actually needs it and the action is authorized, not as a universal deployment ritual.

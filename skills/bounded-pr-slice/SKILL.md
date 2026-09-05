@@ -1,34 +1,25 @@
 ---
 name: bounded-pr-slice
-description: Convert a grounding record into one coherent PR-sized implementation cycle with explicit scope, ownership, evidence, gates, and replan triggers.
+description: Shape a substantial requested change into one reviewable PR outcome with scope, contracts, and acceptance evidence. Not a requirement to write a brief before routine edits.
 license: MIT OR Apache-2.0
-metadata:
-  category: delivery
-  phase: planning
 ---
 
 # Bounded PR Slice
 
-A valid slice has one objective, one source-of-truth story, a small owned change surface, executable acceptance evidence, and no hidden prerequisite.
+A slice should be understandable as one outcome, not a count of files or tasks. Use the current repository context and requested goal; the skill itself does not authorize implementation or publication.
 
-Under ordinary serial delivery, one root session owns only one active PR cycle at a time: plan, implementation, delivery, the bounded review gate, and a terminal handoff. After `MERGED`, `READY_TO_MERGE`, or `REPLAN_REQUIRED`, close that cycle. A next explicitly authorized slice may begin in the same session only after a user-visible transition, fresh grounding, and any milestone hard stop or owner decision is resolved.
+## Shape the change
 
-For an explicitly admitted `parallel-portfolio`, use this brief per lane; the portfolio skill owns concurrency, isolated ownership, integration, and terminal state. This skill alone never authorizes concurrent writers.
+Explain what will become possible or correct, what remains out of scope, which contracts matter, and how the result will be demonstrated. Name a prerequisite only when it actually blocks the behavior. Identify source owners and the likely affected components without pretending to know the final implementation before reading them.
 
-Before finalizing the brief, identify assumptions that affect scope, acceptance, authority, or compatibility. Use `owner-decision-gate` for material unresolved choices; use reasonable documented assumptions for routine reversible details. Do not turn review into design negotiation.
+Prefer an end-to-end capability over disconnected horizontal work. A protocol correction may include the codec, caller handling, and regression fixture in one PR. A UI workflow may need its API integration and failure state together. Split unrelated outcomes or a migration with independently meaningful stages; do not split a coherent fix into administrative fragments.
 
-## Brief template
+## Leave room to implement
 
-1. Objective and user-visible outcome.
-2. Grounding-record reference with exact base SHA, prerequisites, and resolved Codebase Memory project/root plus coverage notes.
-3. Owner-decision record, milestone boundary, and authorization state.
-4. In-scope and explicitly excluded work.
-5. Contracts, invariants, source ownership, and likely change surface.
-6. Ordered implementation steps and focused acceptance evidence.
-7. Failure, hostile-repetition, cleanup/reclaim, and platform cases that apply.
-8. Required local/native gates plus any explicitly justified hosted or platform gates.
-9. Low-risk assumptions, risks, and concrete `REPLAN` triggers.
+State invariants and acceptance behavior rather than pseudocode or mandatory helper names. Let the implementer adjust local design after inspecting the code. Revisit the plan when a public contract, data migration, new service, consequential dependency, or ownership conflict changes the promised outcome—not whenever a routine detail differs.
 
-Use Codebase Memory's focused graph tools to bound the source-of-truth path, implementation surface, and blast radius before finalizing the brief. Check index coverage before an exhaustive scope claim. Keep exact repository state and executable gates as separate evidence; the graph does not replace them.
+Use existing focused checks, plus the consumer tests needed by the change. Keep heavy native-platform, fuzz, durability, and performance qualification in its established release lane unless the change specifically needs it now. Do not remove required checks to fit a small PR.
 
-For several already-authorized slices, select the first dependency-eligible coherent slice using recorded priorities. Ask only when credible alternatives leave a material scope, sequencing, or acceptance decision unresolved. Split or replan when work needs independent migrations, competing source owners, an unmerged prerequisite, or behavior that cannot be demonstrated in one reviewable PR. Review cycles verify an agreed design; they do not discover or negotiate it.
+For delegated work, identify the owner of shared contracts and generated files. Independent lanes may proceed under the repository's policy; this brief neither requires nor forbids parallel work on its own.
+
+A few paragraphs or an existing issue are usually enough. Hand over the outcome, boundaries, acceptance evidence, and unresolved decisions. Do not require a separate planning file, ledger, or approval for an already clear authorized change.

@@ -1,3 +1,6 @@
 interface:
-  display_name: "Behavior First Implementation"
-  short_description: "Vertical red-green-refactor implementation"
+  display_name: Behavior-First Implementation
+  short_description: Practical behavior-first implementation guidance
+  default_prompt: Use $behavior-first-implementation for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

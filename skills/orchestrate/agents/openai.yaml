@@ -1,3 +1,6 @@
 interface:
-  display_name: "Orchestrate"
-  short_description: "Deliver one bounded change through gated review"
+  display_name: Coordinate a Bounded Change
+  short_description: Practical coordinate a bounded change guidance
+  default_prompt: Use $orchestrate for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: false

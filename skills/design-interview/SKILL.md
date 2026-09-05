@@ -1,29 +1,30 @@
 ---
 name: design-interview
-description: Run a multi-round decision-tree interview only when the user explicitly asks to be grilled, interviewed, or to stress-test a design. Find facts independently and ask only decisions the user owns.
+description: Run a focused design interview only when explicitly requested. Research discoverable facts first and ask the user about consequential choices; not a mandatory interview before implementation.
 license: MIT OR Apache-2.0
 metadata:
-  compatibility: "Codex; OpenCode requires an explicit-only adapter"
-  upstream-repository: "https://github.com/mattpocock/skills"
-  upstream-commit: "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
-  adaptation: "Bounded Codex/OpenCode workflow"
+  upstream-repository: https://github.com/mattpocock/skills
+  adaptation: Workflow simplification; retained upstream attribution
 ---
 
 # Design Interview
 
-Use only after an explicit request for an interview. The goal is a decision-ready design record, not permission to build or publish it.
+Use an interview when the user asks to be interviewed, challenged, or guided through unresolved design decisions. Do not turn an ordinary request for research or implementation into a questionnaire.
 
-Map the topic as a decision tree. The **frontier** is the set of open decisions whose prerequisites are already settled. Work one frontier at a time so later questions do not depend on guessed earlier answers.
+## Find the open decisions
 
-## Each round
+Read the brief, relevant source, and prior answers. Separate facts you can discover from choices only the user can make. Identify which decisions are truly open and which depend on earlier answers. Resolve enough factual context to present a meaningful recommendation.
 
-1. Resolve discoverable facts from repository state, tools, and primary sources. Ask the user for decisions, preferences, risk tolerance, and intent—not facts the environment can establish.
-2. Ask one to three frontier questions. Use the harness-native structured question tool when available; otherwise ask the same concise questions directly.
-3. Give two or three mutually exclusive choices for each question, put the recommended choice first, and state its concrete tradeoff. Preserve the user's ability to give a custom answer.
-4. Record the answer, its rationale, validity conditions, and newly opened branches. Recompute the frontier before the next round.
+Ask a small number of related questions at a time. Explain the recommended option and its concrete tradeoff while leaving room for a custom answer. Do not invent uncertainty to fill a question quota, ask for already supplied information, or demand preferences on routine reversible details.
 
-Do not dispatch agents merely to avoid doing bounded fact-finding. Delegate only an independent read-only question when collaboration is authorized and the result can arrive without blocking other frontier questions.
+## Adapt to the answers
 
-Stop when the frontier is empty, the user says the design is sufficiently resolved, or a fact/authority gap prevents an honest next question. Use the owner-decision gate for material contract, infrastructure, migration, publication, or authority choices before implementation depends on them.
+Carry forward the user's actual decision and rationale. Revisit it only when new evidence changes its assumptions. Continue independent fact-finding when useful; do not invent background capabilities or require named research agents.
 
-Return a compact decision record with the agreed outcome, resolved branches, assumptions, out-of-scope branches, remaining unknowns, and the next authorized action. Do not edit project files or start implementation unless separately requested.
+A product behavior, compatibility promise, irreversible migration, recurring cost, or authority boundary deserves explicit treatment. Helper names and local test organization generally do not. When a decision cannot yet be made, explain the missing evidence and avoid building dependent assumptions into the plan.
+
+## Stop when the interview has done its job
+
+Stop when consequential decisions are sufficiently resolved, the user asks to stop, or a genuine evidence gap blocks progress. Return the agreed outcome, important constraints, remaining uncertainty, and next useful action. A compact summary is enough; no separate decision record is required unless requested.
+
+The interview does not authorize implementation, edits to durable project documents, infrastructure changes, or publication on its own. Honor the scope already given and do not infer new permission from silence.

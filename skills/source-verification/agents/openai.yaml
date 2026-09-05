@@ -1,3 +1,6 @@
 interface:
-  display_name: "Source Verification"
-  short_description: "Verify critical claims from primary evidence"
+  display_name: Source Verification
+  short_description: Practical source verification guidance
+  default_prompt: Use $source-verification for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

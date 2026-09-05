@@ -1,43 +1,32 @@
 ---
 name: behavior-first-implementation
-description: Implement an authorized bounded change test-first through public behavior seams using vertical red-green-refactor slices. Use only during implementation when the user or brief calls for TDD; not for diagnosis-only or review work.
+description: Implement an authorized change with test-first vertical red-green-refactor cycles when TDD is requested or required. Use observable behavior; not diagnosis-only work or a mandate to replace existing tests.
 license: MIT OR Apache-2.0
 metadata:
-  compatibility: "Codex and OpenCode 1.x"
-  upstream-repository: "https://github.com/mattpocock/skills"
-  upstream-commit: "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
-  adaptation: "Bounded Codex/OpenCode workflow"
+  upstream-repository: https://github.com/mattpocock/skills
+  adaptation: Workflow simplification; retained upstream attribution
 ---
 
-# Behavior First Implementation
+# Behavior-First Implementation
 
-Apply TDD inside an already authorized implementation lane. Consume the bounded brief, grounding record, acceptance evidence, scope, and ownership constraints. This skill never authorizes implementation, Git/GitHub actions, or a wider change surface.
+Use TDD inside the requested change. An explicit request to fix or implement supplies the task scope; a separate planning packet or orchestrator is not required. Follow repository test conventions and preserve unrelated work.
 
-## Choose the behavior seam
+## Choose the observable behavior
 
-Identify the highest stable interface through which a caller can observe the requested behavior. Reuse repository test conventions and existing fixtures. Treat interface shape as settled when the brief and live source agree; if a public contract or seam remains materially unresolved, stop with `REPLAN_REQUIRED` rather than designing it implicitly.
+Find a stable seam where a caller can observe the requested result, error, or state transition. Read the implementation and consumers before inventing an interface. Prefer meaningful existing unit, integration, or contract seams over forcing every check into the highest possible layer.
 
-Read [test-quality.md](references/test-quality.md) when choosing assertions or diagnosing a weak test. Read [test-doubles.md](references/test-doubles.md) when an external dependency needs substitution.
+Derive expected results from a specification, independently worked example, trustworthy fixture, or independent implementation. A round-trip or duplicated algorithm can agree with the same bug. Use test doubles at true external boundaries or to control nondeterminism, not to lock tests to private call order.
 
-## Run vertical red-green-refactor cycles
+## Work vertically
 
-For one behavior at a time:
+For one behavior, write the smallest useful failing test and run it. Confirm it fails for the intended missing behavior, not a broken fixture, import error, or unrelated environment problem. Make the smallest correct production change, rerun the focused test, and refactor within scope while it remains green.
 
-1. **Red:** add the smallest test that expresses one acceptance behavior through the chosen seam. Run it and confirm it fails for the intended missing behavior. A test that already passes or fails during unrelated setup is not a red signal.
-2. **Green:** make the smallest production change that satisfies that test without anticipating later slices. Run the focused test again.
-3. **Refactor while green:** improve names, duplication, and local structure only within the bounded scope. Keep the focused test green after each meaningful change.
-4. **Integrate:** run the nearest relevant package or subsystem checks before starting the next slice.
+Then add the next behavior the implementation has made clear. Avoid a large speculative batch of tests for interfaces that are still being designed. For legacy behavior, a characterization test may begin green; label it honestly rather than claiming a red-green cycle occurred.
 
-Repeat with the next observable behavior. Avoid writing a horizontal batch of speculative tests before the implementation has taught you what the next slice should be.
+Test relevant failure and lifecycle cases as well as the happy path. Reuse deterministic fixtures and the repository's runner. For Rust, preserve nextest selection semantics and separate required doctests. For bindings, include Python-visible evidence rather than only native tests.
 
-## Preserve test value
+## Finish with evidence
 
-- Assert caller-visible outcomes, durable state transitions, emitted contracts, or externally observable failures.
-- Derive expected values from the specification, a worked example, a trusted fixture, or another independent oracle—not by repeating the implementation algorithm in the test.
-- Keep repository-native unit, integration, contract, or end-to-end boundaries when they already protect the behavior. “Highest seam” is guidance, not a reason to replace effective tests.
-- Use test doubles at true system boundaries or to make nondeterminism controllable. Do not mock internal collaboration merely to mirror call structure.
-- Add a regression test only when it can reproduce the real failure pattern. If no honest seam exists, return that as a design finding rather than adding a false-confidence test.
+Run focused acceptance checks and the appropriate repository-required broader validation. Report what actually ran and what remains unrun. Do not disable flaky checks or overwrite expected results merely to obtain green output.
 
-## Close the implementation lane
-
-Run the focused acceptance command, the repository-required static checks, and one appropriate broader suite. Record compact results and verify the tracked change set remains within scope. Do not commit, push, publish, or self-approve review; return the worktree and evidence to the orchestrator or caller that owns delivery.
+Ask only when a consequential public contract or owner decision remains unresolved. Routine implementation discoveries do not require a new approval loop. Commit, publish, or merge only when separately covered by the request and policy.

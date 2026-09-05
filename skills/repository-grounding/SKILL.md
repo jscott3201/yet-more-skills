@@ -1,59 +1,25 @@
 ---
 name: repository-grounding
-description: Establish and reuse an exact repository, revision, prerequisite, instruction, worktree, and validation baseline before repository work.
+description: 'Establish repository context for a substantial change: applicable instructions, actual source, ownership, dependencies, and meaningful checks. Reuse known context; not a mandatory preflight for tiny edits.'
 license: MIT OR Apache-2.0
-metadata:
-  category: workflow
-  phase: preflight
 ---
 
 # Repository Grounding
 
-Create one grounding record before work that depends on a live repository, pull request, branch, milestone, or handoff. Reuse that record while the target revision, applicable instructions, and prerequisite state remain unchanged. Do not launch a second grounding pass as a planning or review ritual.
+Read enough of the actual repository to work safely. Scale the inspection to the task; a spelling correction does not need an architecture survey or a formal record.
 
-## Establish the baseline
+## Find the working context
 
-- Read the applicable repository instructions and task or milestone handoff.
-- Record repository identity, branch, exact base/head SHAs, remote, and worktree state. Preserve unrelated work.
-- Resolve prerequisites and overlapping pull requests to live states and the immutable identifiers needed for the decision; prose such as "done" is not evidence.
-- Distinguish immutable revision-bound contracts and provenance from mutable workflow status. Read current status from its live authority and never use an older pin as a fallback for eligibility.
-- Verify referenced paths, symbols, contracts, tests, validators, and gate commands against live source.
-- The root resolves the Codebase Memory project/root and coverage once under the global tool-routing rule. Delegated agents consume that record without project discovery or index management. Use focused read tools for referenced paths, symbols, and minimum dependency edges before broad native search, check coverage before exhaustive claims, and read exact source for flagged or missing coverage. This repository-specific skill does not require inventing a repository for personal configuration or external research.
-- Classify conclusions as `FACT`, `INFERENCE`, `UNKNOWN`, or `RECOMMENDATION` and name stop/replan conditions.
+Read applicable instructions and the requested issue, handoff, or plan. Identify the working directory, intended branch or PR, relevant source and tests, and unrelated work to preserve. Inspect current files before treating an old handoff as implementation evidence. Do not reset, clean, stash, or move someone else's changes to make the workspace convenient.
 
-Use bounded source inspection and exact-revision remote evidence. Do not paste command output, full diffs, or large source excerpts into the record.
+Trace the behavior being changed through its owner and important callers. Check relevant public contracts, generated files, dependency boundaries, and prerequisites. Prefer focused file/symbol searches over repeated whole-repository inventories. Use an available code index or memory service when it helps; verify its coverage and confirm consequential claims in source. Missing optional tools are not a blocker to ordinary file inspection. Do not install or rebuild an index just to complete this step.
 
-## Reuse and refresh
+Read the repository's actual validation commands and their package, feature, and environment scope. A familiar command is not necessarily the project's gate. Separate focused checks from staged release qualification; preserve native-only platform policy where applicable.
 
-- Pass the record by reference to planning, implementation, and review roles.
-- If only a volatile field changes, verify and amend that field while preserving the rest of the record.
-- Rebuild the record only when a revision, prerequisite, instruction, or ownership change invalidates its baseline.
-- Recheck revisions at phase transitions or after an observed state change, not on a timer or as a repeated planning ritual.
-- If the baseline cannot be proven, return `REPLAN_REQUIRED`; never fabricate it.
+## Reuse what remains valid
 
-## Required record
+Keep context in the working conversation or existing handoff. Refresh changed files, instructions, or prerequisites when new information invalidates them; do not repeatedly rediscover unchanged context. Do not create revision ledgers or mandatory status templates.
 
-```text
-GROUNDING_RECORD
-owner/repo:
-root:
-Codebase Memory project/root and coverage:
-instructions:
-default branch:
-current branch:
-base ref/SHA:
-head ref/SHA:
-working tree:
-prerequisites:
-overlapping PRs:
-owner decisions and milestone hard stops:
-authoritative paths/symbols:
-gate commands:
-unrelated WIP:
-facts:
-inferences:
-unknowns:
-stop conditions:
-signal: GROUNDED | REPLAN_REQUIRED
-END_GROUNDING_RECORD
-```
+Proceed with reasonable reversible assumptions when the intent is clear. Ask about a material unresolved product, compatibility, ownership, or permission choice; continue independent authorized work where possible. An unavailable optional index and an unmerged required API are different kinds of gaps.
+
+Return only the useful orientation: source of truth, likely change surface, checks to run, and any actual blocker. Distinguish observed facts from interpretation.

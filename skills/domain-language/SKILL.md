@@ -1,38 +1,30 @@
 ---
 name: domain-language
-description: Clarify ambiguous domain terminology, stress-test definitions with scenarios, and propose terminology-specific glossary or ADR wording grounded in code and repository conventions. Use when naming or domain-language meaning is the task; not for general architecture or product decisions, and documentation edits require scope.
+description: Clarify ambiguous domain terms using code, examples, and boundary cases. Propose consistent vocabulary when terminology is the task; not an automatic glossary, ADR, or schema migration.
 license: MIT OR Apache-2.0
 metadata:
-  compatibility: "Codex and OpenCode 1.x"
-  upstream-repository: "https://github.com/mattpocock/skills"
-  upstream-commit: "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
-  adaptation: "Bounded Codex/OpenCode workflow"
+  upstream-repository: https://github.com/mattpocock/skills
+  adaptation: Workflow simplification; retained upstream attribution
 ---
 
 # Domain Language
 
-Build a shared language that matches both the domain expert's meaning and the system's actual behavior. Reading an existing glossary is an ordinary grounding step; use this skill when the language itself is being resolved or documented.
+Make the language match both the domain expert's intent and the system's behavior. Reading an existing glossary is ordinary context gathering; use this skill when the meaning itself is unclear or being revised.
 
-## Ground the vocabulary
+## Find the conflicting meanings
 
-1. Find repository-local glossaries, context maps, architecture records, schemas, public contracts, and naming conventions. Do not assume `CONTEXT.md` or `docs/adr/` is the repository standard.
-2. Use Codebase Memory to locate definitions and usages, then inspect exact code for the load-bearing cases. Check coverage before claiming a term is absent or consistently used.
-3. Separate current documented meaning, current implementation behavior, owner intent, and recommendation.
+Inspect existing terminology in schemas, APIs, source, user-facing text, and project documentation. Use available code-search or index tools, and verify meaningful usages in source. Do not assume a project has a particular glossary filename or documentation layout.
 
-## Resolve ambiguity
+Look for one word used for different concepts, different words used for one concept, or an implementation term that obscures a user-visible distinction. Keep documented meaning, observed behavior, owner intent, and recommendation separate.
 
-- Call out one word used for multiple concepts or several words used for one concept.
-- Propose a canonical term with a tight definition and explicitly named near-misses.
-- Stress-test the definition with concrete boundary cases, failure cases, lifecycle transitions, and relationships to neighboring concepts.
-- When code, documentation, and conversation disagree, surface the contradiction. Do not silently choose an authority that the repository does not establish.
-- Keep domain definitions free of incidental implementation detail. Put implementation and architecture decisions in the repository's decision-record format instead.
+## Stress-test a definition
 
-Read [recording-language.md](references/recording-language.md) only when producing a glossary or decision-record proposal.
+Propose a short definition with important near-misses. Try ordinary examples, lifecycle transitions, failure cases, and ambiguous boundaries. In building software, concepts such as observation, command acceptance, physical readback, fault acknowledgement, and verified recovery should not collapse merely because they share a status field.
 
-## Persistence boundary
+A name is useful only if it preserves the important distinction. Do not rename public interfaces for aesthetic consistency while hiding a semantic difference. When terminology changes a wire contract, stored data, or compatibility promise, surface that implementation impact before proceeding.
 
-For explanation or design discussion, return proposed wording and affected concepts without editing files. Write or revise a glossary, context map, or ADR only when documentation changes are explicitly requested or included in an authorized implementation brief. Follow the repository's existing location, numbering, status, and template; introduce a fallback format only after noting that none exists.
+## Record only what earns a place
 
-Recommend a durable decision record only when the decision is costly to reverse, surprising without its context, and the result of a real tradeoff. Material unresolved choices still belong to the owner-decision gate.
+For a discussion, return proposed wording and the evidence or contradiction it resolves. Edit a glossary, API description, or decision note only when documentation changes are in scope. Use the existing project format rather than creating new directories and numbering schemes.
 
-Return a compact record of terms, proposed definitions, evidence, tested scenarios, contradictions, documentation candidates, and remaining owner decisions.
+Preserve rationale for a surprising, costly-to-reverse decision when it will help future work. A routine naming clarification rarely needs an architecture record. Ask for owner guidance when the intended domain meaning is genuinely undecidable from available evidence; do not silently substitute a convenient technical interpretation.

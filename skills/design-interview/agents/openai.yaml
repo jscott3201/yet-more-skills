@@ -1,5 +1,6 @@
 interface:
-  display_name: "Design Interview"
-  short_description: "Stress-test a design through decision rounds"
+  display_name: Design Interview
+  short_description: Practical design interview guidance
+  default_prompt: Use $design-interview for the requested task, keeping its scope and actual evidence explicit.
 policy:
   allow_implicit_invocation: false

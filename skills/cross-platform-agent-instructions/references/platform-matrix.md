@@ -1,23 +1,16 @@
-# Verified platform baseline
+# Harness compatibility notes
 
-Baseline date: 2026-09-04. Re-check this matrix when either runtime changes.
+Reviewed against the sources below on September 5, 2026. Check the actual installed version before changing configuration. Documentation review is not a runtime compatibility test.
 
-Tested CLI versions: Codex `0.153.2`; OpenCode `1.18.23`.
-
-| Concern | Codex | OpenCode 1.18.23 |
+| Concern | Codex documentation baseline | Other harnesses |
 | --- | --- | --- |
-| Shared repo discovery | `.agents/skills/<id>/SKILL.md` from the working directory toward the repository root | `.agents/skills/<id>/SKILL.md` from the working directory toward the worktree root |
-| Shared user discovery | `~/.agents/skills/<id>/SKILL.md` | `~/.agents/skills/<id>/SKILL.md` |
-| Required frontmatter | `name`, `description` | `name`, `description`; optional `license`, `compatibility`, string metadata |
-| Codex UI metadata | `agents/openai.yaml` | Ignored |
-| Explicit-only skill | `policy.allow_implicit_invocation: false` in `agents/openai.yaml` | No equivalent verified in 1.18.23; use a separate explicit command/adapter or do not expose it |
-| Skill-directory symlinks | Supported | Loader traversal verified locally; avoid duplicate IDs across roots |
-| Reload | Skill file changes are normally detected; config-level enable/disable requires restart | Config and discovery state are loaded per process; fully exit and relaunch after activation changes |
+| Skill body | `SKILL.md` with `name` and `description`; deeper resources can be linked | Start from the Agent Skills format, then verify the host |
+| Local discovery | Repository/user `.agents/skills` locations are documented | Do not assume the same roots or precedence |
+| Invocation | `policy.allow_implicit_invocation: false` in `agents/openai.yaml` disables implicit use | This file may be ignored; verify a native equivalent or do not expose an explicit-only workflow |
+| Changes | Automatic detection is documented; restart is a fallback when an update does not appear | No blanket process-shutdown requirement is established by this review |
+| Duplicate names | Codex does not merge duplicate named installations | Verify the target's behavior; avoid shadow copies |
+| Frontmatter | Validate with the actual target and the chosen authoring checks | The portable standard allows fields that particular helpers may reject |
 
-Primary references:
+Do not advertise OpenCode runtime testing from this table. None was performed in this review. Keep a narrow shared frontmatter subset when portability is useful, without describing one helper's field restrictions as a universal Codex rule.
 
-- Codex: <https://learn.chatgpt.com/docs/build-skills>
-- OpenCode 1.x: <https://opencode.ai/docs/skills/>
-- OpenCode configuration: <https://opencode.ai/docs/config/>
-
-The OpenCode V2 documentation uses different config shapes and precedence. Do not apply V2 examples to a 1.18.x installation.
+Sources: [Codex skills](https://developers.openai.com/codex/skills), [Agent Skills specification](https://agentskills.io/specification), and [description guidance](https://agentskills.io/skill-creation/optimizing-descriptions).

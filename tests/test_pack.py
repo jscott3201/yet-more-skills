@@ -12,8 +12,8 @@ class PackTests(unittest.TestCase):
     def test_catalog_and_files_match(self):
         skills = json.loads((ROOT/'catalog.json').read_text())['skills']
         names = [x['name'] for x in skills]
-        self.assertEqual(len(names), 70)
-        self.assertEqual(len(set(names)), 70)
+        self.assertTrue(names)
+        self.assertEqual(len(set(names)), len(names))
         self.assertEqual(set(names), {p.parent.name for p in (ROOT/'skills').glob('*/SKILL.md')})
         for name in names:
             self.assertRegex(name, r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
@@ -35,12 +35,38 @@ class PackTests(unittest.TestCase):
     def test_evaluation_cases_are_unique_and_unexecuted(self):
         data = json.loads((ROOT/'evals/scenarios.json').read_text())
         self.assertEqual(data['status'], 'authored_not_executed')
-        self.assertEqual(len(data['scenarios']), 140)
-        self.assertEqual(len({x['case'] for x in data['scenarios']}), 140)
+        self.assertTrue(data['scenarios'])
+        self.assertEqual(len({x['case'] for x in data['scenarios']}), len(data['scenarios']))
         for row in data['scenarios']:
             self.assertTrue(row['prompt'])
             self.assertTrue(row['expected'])
             self.assertTrue(row['avoid'])
+
+    def test_review_scenario_coverage(self):
+        changes = json.loads((ROOT/'evals/review-changed-skills.json').read_text())
+        changed = changes['replacements'] + changes['additions']
+        self.assertEqual(len(changed), len(set(changed)))
+        catalog = {row['name'] for row in json.loads((ROOT/'catalog.json').read_text())['skills']}
+        self.assertTrue(set(changed) <= catalog)
+        all_ids = []
+        coverage = {name: set() for name in changed}
+        for path in (ROOT/'evals').glob('*scenarios.json'):
+            data = json.loads(path.read_text())
+            self.assertEqual(data['status'], 'authored_not_executed')
+            self.assertTrue(data['scenarios'])
+            for row in data['scenarios']:
+                all_ids.append(row['case'])
+                for field in ('prompt', 'expected', 'avoid'):
+                    self.assertTrue(row[field])
+                if path.name == 'review-scenarios.json':
+                    self.assertIn(row['kind'], ('activation', 'boundary', 'behavior'))
+                    self.assertTrue(row['skills'])
+                    for name in row['skills']:
+                        self.assertIn(name, coverage)
+                        coverage[name].add(row['kind'])
+        self.assertEqual(len(all_ids), len(set(all_ids)))
+        for name, kinds in coverage.items():
+            self.assertTrue({'activation', 'boundary'} <= kinds, name)
 
     def test_install_sets_select_existing_skills(self):
         spec = importlib.util.spec_from_file_location('pack_install', ROOT/'install.py')

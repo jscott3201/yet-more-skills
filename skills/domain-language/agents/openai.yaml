@@ -1,3 +1,6 @@
 interface:
-  display_name: "Domain Language"
-  short_description: "Clarify domain terms and definitions"
+  display_name: Domain Language
+  short_description: Practical domain language guidance
+  default_prompt: Use $domain-language for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

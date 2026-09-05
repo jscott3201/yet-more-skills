@@ -1,3 +1,6 @@
 interface:
-  display_name: "Module Design"
-  short_description: "Design deep, testable module interfaces"
+  display_name: Module Design
+  short_description: Practical module design guidance
+  default_prompt: Use $module-design for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

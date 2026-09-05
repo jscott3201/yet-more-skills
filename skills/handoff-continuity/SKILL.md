@@ -1,28 +1,29 @@
 ---
 name: handoff-continuity
-description: Preserve exact repository and delivery state in a compact standalone handoff without replaying the completed session transcript.
+description: Prepare a compact, self-contained handoff when work changes session or owner, including partial implementation or research. Capture useful state and next action; not a transcript or a mandatory PR-close ritual.
 license: MIT OR Apache-2.0
-metadata:
-  category: delivery
-  phase: continuity
 ---
 
 # Handoff Continuity
 
-Finalize one handoff when the current PR reaches `MERGED`, `READY_TO_MERGE`, or `REPLAN_REQUIRED`. Do not draft a speculative next slice while an immutable head is under review.
+Leave enough information to resume without replaying the conversation. A handoff can describe completed work, an incomplete local change, research, or a blocker; it does not require a merged PR or terminal workflow state.
 
-Verify the final repository, PR, check, and merge state at exact SHAs. Reconcile stale paths or symbols against live source and reuse the grounding, evidence, and review records rather than reproducing them.
+## Preserve what matters
 
-## Required standalone content
+Explain the goal, what changed or was learned, and what remains. Name the relevant repository, working location, branch or PR when applicable, important source paths, and unrelated work to preserve. Use ordinary references; do not create revision ledgers.
 
-- purpose and expected next outcome;
-- exact repository, branch, PR, merge, base/head SHA, and worktree state;
-- prerequisite and dependency state;
-- applicable instructions, source ownership, the resolved Codebase Memory project/root and coverage gaps, and links to durable grounding/evidence records;
-- resolved owner decisions, milestone hard stops, and contracts that still constrain the next slice;
-- remaining scope, explicit exclusions, likely paths/symbols, and first verification commands;
-- gate commands with compact pass/fail results, not logs;
-- material deferred findings, risks, unknowns, and replan triggers;
-- required authorization or merge state.
+Record actual checks and their outcomes, including failed, unavailable, or unrun evidence. Separate implementation from validation and validation from release readiness. A generated file, a green narrow test, or a remembered approval is not proof of everything downstream.
 
-Do not replay the transcript or embed raw tool output, full diffs, full review packets, discarded alternatives, or already-resolved discussion. The handoff must be sufficient to resume safely without inheriting the prior context window. End the current implementation cycle after the handoff. The same root session may begin a next explicitly authorized slice only after a user-visible transition, fresh grounding, and confirmation that no declared milestone hard stop applies; otherwise stop and preserve the handoff for a later session.
+Carry forward only decisions that still constrain the task: public contracts, ownership, native-platform policy, user stop points, exclusions, and permission boundaries. Include a concrete next action and the minimum verification needed before taking it. Make a stale or unresolved prerequisite visible.
+
+## Avoid stale authority
+
+Confirm consequential current status when the next action depends on it. Do not turn an old handoff into proof that a PR merged, a release shipped, or an external operation succeeded. The next worker should inspect the relevant live authority rather than repeat a whole grounding ritual.
+
+Memory or an index can supply context when available; it is not a prerequisite. Persistent memory writes require the active workflow's authority and should retain source pointers, not unsupported conclusions. Do not copy secrets, raw logs, customer captures, or full tool transcripts into a handoff.
+
+## Use the smallest useful form
+
+A short Markdown note with outcome, changed areas, evidence, open issues, and next action is usually enough. Reuse an existing handoff rather than creating competing status documents. Write to a project or program repository only when that destination is part of the request.
+
+Do not invent missing results, impose a stop after every small edit, or promise work that will happen outside the current execution. State exactly where the next person or agent should pick up.

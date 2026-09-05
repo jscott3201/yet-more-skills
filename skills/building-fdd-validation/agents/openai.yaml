@@ -1,0 +1,6 @@
+interface:
+  display_name: Building FDD Validation
+  short_description: Practical building fdd validation guidance
+  default_prompt: Use $building-fdd-validation for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

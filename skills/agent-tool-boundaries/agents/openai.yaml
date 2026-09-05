@@ -1,0 +1,6 @@
+interface:
+  display_name: Agent and MCP Tool Boundaries
+  short_description: Practical agent and mcp tool boundaries guidance
+  default_prompt: Use $agent-tool-boundaries for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

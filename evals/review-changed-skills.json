@@ -1,0 +1,29 @@
+{
+  "replacements": [
+    "repository-grounding",
+    "bounded-pr-slice",
+    "orchestrate",
+    "pr-gate-loop",
+    "immutable-pr-review",
+    "parallel-portfolio",
+    "owner-decision-gate",
+    "handoff-continuity",
+    "source-verification",
+    "behavior-first-implementation",
+    "diagnosis-loop",
+    "module-design",
+    "tracer-bullet-planning",
+    "design-interview",
+    "domain-language",
+    "cross-platform-agent-instructions"
+  ],
+  "additions": [
+    "simplify-existing-code",
+    "bounded-prototype",
+    "agent-tool-boundaries",
+    "memory-context-hygiene",
+    "edge-cloud-sync",
+    "building-fdd-validation",
+    "ui-equipment-3d"
+  ]
+}

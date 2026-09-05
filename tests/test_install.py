@@ -38,7 +38,7 @@ class InstallerTests(unittest.TestCase):
     def test_full_install_preserves_file_contents(self):
         result = self.run_install('--set', 'full', '--apply')
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(self.count(), 70)
+        self.assertEqual(self.count(), len(list((ROOT/'skills').glob('*/SKILL.md'))))
         for source in (ROOT/'skills').rglob('*'):
             if source.is_file() and source.name != '.DS_Store' and '__pycache__' not in source.parts:
                 target = self.dest/source.relative_to(ROOT/'skills')
@@ -54,6 +54,38 @@ class InstallerTests(unittest.TestCase):
         adapted = self.dest/'module-design'
         self.assertIn('Matt Pocock', (adapted/'LICENSE.mattpocock-skills').read_text())
         self.assertTrue((adapted/'NOTICE').is_file())
+
+    def test_review_sets_and_single_new_skill(self):
+        selections = {
+            'workflow-lite': {'repository-grounding', 'source-verification', 'diagnosis-loop',
+                              'bounded-pr-slice', 'handoff-continuity'},
+            'agent-systems': {'agent-tool-boundaries', 'memory-context-hygiene'},
+            'building-systems': {'edge-cloud-sync', 'building-fdd-validation'},
+            'equipment-ui': {'ui-equipment-3d'},
+        }
+        for selection, names in selections.items():
+            with self.subTest(selection=selection):
+                self.dest = self.base/selection
+                preview = self.run_install('--set', selection)
+                self.assertEqual(preview.returncode, 0, preview.stderr)
+                self.assertFalse(self.dest.exists())
+                result = self.run_install('--set', selection, '--apply')
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual({p.name for p in self.dest.iterdir()}, names)
+                for name in names:
+                    for license_name in ('LICENSE-MIT', 'LICENSE-APACHE'):
+                        self.assertEqual((self.dest/name/license_name).read_bytes(),
+                                         (ROOT/license_name).read_bytes())
+        self.dest = self.base/'single-new'
+        result = self.run_install('--skill', 'bounded-prototype', '--apply')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual({p.name for p in self.dest.iterdir()}, {'bounded-prototype'})
+        marker = self.dest/'bounded-prototype/SKILL.md'
+        marker.write_text('customized skill')
+        result = self.run_install('--set', 'skill-review-additions', '--apply')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(marker.read_text(), 'customized skill')
+        self.assertEqual(self.count(), 1)
 
     def test_protocol_set(self):
         result = self.run_install('--set', 'protocol', '--apply')

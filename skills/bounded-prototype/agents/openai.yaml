@@ -1,0 +1,6 @@
+interface:
+  display_name: Bounded Prototype
+  short_description: Practical bounded prototype guidance
+  default_prompt: Use $bounded-prototype for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: false

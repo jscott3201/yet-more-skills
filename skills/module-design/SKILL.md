@@ -1,49 +1,32 @@
 ---
 name: module-design
-description: Analyze or design module interfaces, seams, invariants, and dependency adapters for high leverage and locality. Use for architecture design, refactor planning, and testability questions; not as permission to implement.
+description: Analyze or improve module boundaries, interfaces, ownership, and test seams for a requested design or refactor. Prefer simpler callers and local invariants; not automatic abstraction or permission to rewrite.
 license: MIT OR Apache-2.0
 metadata:
-  compatibility: "Codex and OpenCode 1.x"
-  upstream-repository: "https://github.com/mattpocock/skills"
-  upstream-commit: "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
-  adaptation: "Bounded Codex/OpenCode workflow"
+  upstream-repository: https://github.com/mattpocock/skills
+  adaptation: Workflow simplification; retained upstream attribution
 ---
 
 # Module Design
 
-Design for leverage at the interface and locality in the implementation. Use the repository's own terminology in user-facing output; the vocabulary below is an analytical aid, not a renaming mandate.
+Seek interfaces that give callers useful behavior without making them coordinate internal details. Keep related state, invariants, failure handling, and change together. This is design guidance, not a mandate to create architecture documents.
 
-- **Module:** a unit with an interface and hidden implementation, at any scale.
-- **Interface:** everything a caller must know—types, invariants, ordering, errors, configuration, and relevant performance behavior.
-- **Seam:** a location where behavior can vary without changing the caller.
-- **Adapter:** a concrete implementation at a seam.
-- **Depth:** useful behavior available per unit of interface complexity.
-- **Leverage:** how much capability callers gain from one learned interface.
-- **Locality:** how well related knowledge, change, failure, and verification stay together.
+## Inspect the current pressure
 
-## Ground the current shape
+Read the relevant source, consumers, tests, and repository terminology. Use code-index tools when available and useful; direct source inspection is a complete fallback. Identify the specific cost: duplicated decisions, leaky lifecycle rules, difficult testing, tightly coupled changes, or surprising failure behavior.
 
-1. Read repository instructions, architecture records, and domain vocabulary.
-2. Use Codebase Memory to locate authoritative symbols, callers/callees, ownership boundaries, and recent-change impact. Check coverage before claiming a complete call surface.
-3. Read exact implementations and tests around the candidate. Record current interface obligations and which callers depend on each one.
-4. Apply the deletion test: if the module vanished, would complexity disappear or merely scatter into callers? Treat the result as evidence, not a verdict by itself.
+List what callers currently need to know: types, ordering, ownership, errors, configuration, and important performance promises. Ask what would happen if the module disappeared. Would complexity disappear with it, or merely move into every caller?
 
-## Evaluate a design
+## Compare proportionate alternatives
 
-Prefer designs that:
+Consider deletion, consolidation, a clearer concrete API, or an adapter at a real variation boundary before adding generic machinery. One implementation does not automatically forbid an interface; a faithful test adapter or likely independent consumer can justify a seam. Conversely, an imagined future consumer does not automatically justify one.
 
-- reduce what callers must coordinate without hiding required control;
-- place invariants and failure handling with the state or behavior that owns them;
-- expose stable behavior while keeping volatile policy and integration detail local;
-- create a testable contract at a real variation or ownership seam;
-- preserve portability, observability, recovery, and migration needs.
+Put invariants with the state that owns them. Keep volatile integration details behind an appropriate boundary while preserving required control, observability, recovery, and portability. Avoid hiding blocking behavior, ownership transfers, or durability tradeoffs behind a superficially small API.
 
-Do not add an abstraction solely because one implementation exists today. Conversely, production plus a faithful local/test adapter may be a real variation. Judge the evidence and expected change, not a fixed adapter count.
+For a material open interface choice, compare genuinely different options and explain the tradeoff. For an obvious local cleanup, act within the authorized scope rather than inventing alternatives or a formal design approval.
 
-Read [deepening.md](references/deepening.md) for dependency categories and safe consolidation. When a public interface is still open, read [alternatives.md](references/alternatives.md) and compare at least two genuinely different shapes before recommending one.
+## Ground the proposal in evidence
 
-## Return a design record
+Identify the affected callers, preserved behavior, useful test seam, and any migration needed. Distinguish current pain from a speculative benefit. Demonstrate performance claims with representative measurements; interface elegance alone is not a benchmark.
 
-Separate fact from recommendation. Include current pain, authoritative paths/symbols, callers and contracts, proposed interface including invariants/errors, hidden implementation, dependency strategy, migration shape, test seam, alternatives, tradeoffs, and unresolved owner decisions.
-
-Material public-contract, persistence, compatibility, or migration choices go through the owner-decision gate before implementation. This skill does not edit code or architecture documents unless that change is separately in scope.
+Return a concise recommendation and the decisions that remain. Write a design note only when requested or when a consequential tradeoff needs durable context in the existing project format. Do not implement, change public compatibility, or broaden scope merely because this skill was invoked.

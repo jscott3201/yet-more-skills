@@ -1,3 +1,6 @@
 interface:
-  display_name: "Handoff Continuity"
-  short_description: "Preserve exact delivery state for safe resumption"
+  display_name: Handoff Continuity
+  short_description: Practical handoff continuity guidance
+  default_prompt: Use $handoff-continuity for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

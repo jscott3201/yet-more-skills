@@ -1,3 +1,6 @@
 interface:
-  display_name: "Bounded PR Slice"
-  short_description: "Shape one coherent, reviewable PR slice"
+  display_name: Bounded PR Slice
+  short_description: Practical bounded pr slice guidance
+  default_prompt: Use $bounded-pr-slice for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

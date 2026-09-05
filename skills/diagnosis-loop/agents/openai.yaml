@@ -1,3 +1,6 @@
 interface:
-  display_name: "Diagnosis Loop"
-  short_description: "Evidence-first diagnosis for hard bugs"
+  display_name: Diagnosis Loop
+  short_description: Practical diagnosis loop guidance
+  default_prompt: Use $diagnosis-loop for the requested task, keeping its scope and actual evidence explicit.
+policy:
+  allow_implicit_invocation: true

@@ -382,114 +382,163 @@
     },
     {
       "name": "behavior-first-implementation",
-      "title": "Behavior First Implementation",
-      "description": "Implement an authorized bounded change test-first through public behavior seams using vertical red-green-refactor slices. Use only during implementation when the user or brief calls for TDD; not for diagnosis-only or review work.",
+      "title": "Behavior-First Implementation",
+      "description": "Implement an authorized change with test-first vertical red-green-refactor cycles when TDD is requested or required. Use observable behavior; not diagnosis-only work or a mandate to replace existing tests.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "bounded-pr-slice",
       "title": "Bounded PR Slice",
-      "description": "Convert a grounding record into one coherent PR-sized implementation cycle with explicit scope, ownership, evidence, gates, and replan triggers.",
+      "description": "Shape a substantial requested change into one reviewable PR outcome with scope, contracts, and acceptance evidence. Not a requirement to write a brief before routine edits.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "cross-platform-agent-instructions",
-      "title": "Cross Platform Agent Instructions",
-      "description": "Create or review shared AGENTS.md and Agent Skills for Codex and OpenCode with version-verified discovery, precise triggers, progressive disclosure, and staged config changes. Use only for dual-harness agent configuration, not application code.",
+      "title": "Skill Authoring and Harness Compatibility",
+      "description": "Create, review, or improve agent skills and repository instructions for Codex or another named harness. Check triggers, portability, and real behavior; not application feature work or automatic configuration deployment.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "design-interview",
       "title": "Design Interview",
-      "description": "Run a multi-round decision-tree interview only when the user explicitly asks to be grilled, interviewed, or to stress-test a design. Find facts independently and ask only decisions the user owns.",
+      "description": "Run a focused design interview only when explicitly requested. Research discoverable facts first and ask the user about consequential choices; not a mandatory interview before implementation.",
       "group": "workflow",
       "implicit": false
     },
     {
       "name": "diagnosis-loop",
       "title": "Diagnosis Loop",
-      "description": "Diagnose hard bugs and performance regressions with a symptom-specific feedback loop, minimized reproduction, falsifiable hypotheses, and bounded evidence. Use for diagnosis or debugging requests; stop before fixing unless the user also requested a fix.",
+      "description": "Diagnose a difficult bug or performance regression through a symptom-specific reproduction and falsifiable hypotheses. Fix only when requested; not an automatic architecture rewrite.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "domain-language",
       "title": "Domain Language",
-      "description": "Clarify ambiguous domain terminology, stress-test definitions with scenarios, and propose terminology-specific glossary or ADR wording grounded in code and repository conventions. Use when naming or domain-language meaning is the task; not for general architecture or product decisions, and documentation edits require scope.",
+      "description": "Clarify ambiguous domain terms using code, examples, and boundary cases. Propose consistent vocabulary when terminology is the task; not an automatic glossary, ADR, or schema migration.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "handoff-continuity",
       "title": "Handoff Continuity",
-      "description": "Preserve exact repository and delivery state in a compact standalone handoff without replaying the completed session transcript.",
+      "description": "Prepare a compact, self-contained handoff when work changes session or owner, including partial implementation or research. Capture useful state and next action; not a transcript or a mandatory PR-close ritual.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "immutable-pr-review",
-      "title": "Immutable PR Review",
-      "description": "Apply the shared read-only review protocol to one pull request at exact base/head SHAs and return a compact evidence-backed packet.",
+      "title": "Evidence-Based PR Review",
+      "description": "Review a requested PR, patch, or working-tree diff read-only for concrete failures and contract gaps. Use surrounding source and tests; not a demand for a revision packet or authority to edit.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "module-design",
       "title": "Module Design",
-      "description": "Analyze or design module interfaces, seams, invariants, and dependency adapters for high leverage and locality. Use for architecture design, refactor planning, and testability questions; not as permission to implement.",
+      "description": "Analyze or improve module boundaries, interfaces, ownership, and test seams for a requested design or refactor. Prefer simpler callers and local invariants; not automatic abstraction or permission to rewrite.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "orchestrate",
-      "title": "Orchestrate",
-      "description": "Deliver one repository or PR-sized code change through grounding, bounded implementation, immutable review, exact-head gates, merge authorization, and handoff. Use for end-to-end delivery; not for explanation-only work or a user-requested direct local edit.",
+      "title": "Coordinate a Bounded Change",
+      "description": "Coordinate an explicitly requested end-to-end implementation and review workflow. Use available agents only when useful; not for explanation, diagnosis-only requests, or routine direct edits.",
       "group": "workflow",
-      "implicit": true
+      "implicit": false
     },
     {
       "name": "owner-decision-gate",
-      "title": "Owner Decision Gate",
-      "description": "Resolve material PR, milestone, contract, infrastructure, and authority choices with concise recommended user questions before implementation depends on them.",
+      "title": "Resolve Material Owner Decisions",
+      "description": "Resolve an actual product, compatibility, irreversible-data, cost, or permission choice before dependent work proceeds. Do not ask for discoverable facts, routine reversible details, or answers already given.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "parallel-portfolio",
-      "title": "Parallel Portfolio",
-      "description": "Coordinate an explicitly authorized portfolio of up to two disjoint product PR lanes from one exact base through isolated worktrees, per-lane immutable review, a root-owned integration barrier, and one frozen delivery head. Use only when explicitly invoked and repository-local law permits parallel writers; not for ordinary delivery or shared-authority changes.",
+      "title": "Parallel Work Lanes",
+      "description": "Coordinate explicitly requested parallel implementation with independent ownership and an integration owner. Not a default speed trick, permission to ignore repository writer rules, or a required multi-PR ceremony.",
       "group": "workflow",
       "implicit": false
     },
     {
       "name": "pr-gate-loop",
-      "title": "PR Gate Loop",
-      "description": "Run the authoritative PR gate: one immutable review cycle, one optional batched repair, and one final cycle before mandatory re-planning.",
+      "title": "PR Review and Validation",
+      "description": "Use explicitly to coordinate PR findings, focused repairs, and required checks. Preserve existing repository gates; not an automatic extra approval loop or authority to merge.",
       "group": "workflow",
-      "implicit": true
+      "implicit": false
     },
     {
       "name": "repository-grounding",
       "title": "Repository Grounding",
-      "description": "Establish and reuse an exact repository, revision, prerequisite, instruction, worktree, and validation baseline before repository work.",
+      "description": "Establish repository context for a substantial change: applicable instructions, actual source, ownership, dependencies, and meaningful checks. Reuse known context; not a mandatory preflight for tiny edits.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "source-verification",
       "title": "Source Verification",
-      "description": "Verify decision-critical external or repository claims from bounded primary evidence at a named revision, and make unresolved claims explicitly UNKNOWN.",
+      "description": "Check decision-critical repository or external claims against primary evidence, especially version-sensitive behavior. Separate facts, inference, and unresolved gaps; not an exhaustive search requirement.",
       "group": "workflow",
       "implicit": true
     },
     {
       "name": "tracer-bullet-planning",
-      "title": "Tracer Bullet Planning",
-      "description": "Decompose a large plan or specification into serial PR-sized vertical slices with explicit blockers, acceptance evidence, and expand-migrate-contract handling. Use for multi-PR planning; draft before tracker publication.",
+      "title": "Tracer-Bullet Planning",
+      "description": "Plan a large requested outcome as reviewable vertical PR slices with dependencies and meaningful acceptance evidence. Preserve implementation freedom; not automatic ticket publication or a rigid execution program.",
       "group": "workflow",
+      "implicit": true
+    },
+    {
+      "name": "simplify-existing-code",
+      "title": "Simplify Existing Code",
+      "description": "Simplify a requested code path by deleting unnecessary work, reusing existing behavior, or reducing caller complexity. Use explicitly for cleanup; not permission to weaken contracts, checks, or requested features.",
+      "group": "workflow",
+      "implicit": false
+    },
+    {
+      "name": "bounded-prototype",
+      "title": "Bounded Prototype",
+      "description": "Build an explicitly requested experiment to answer one design, integration, performance, or UI question. Keep it isolated and honest; not production delivery, a mandatory HTML demo, or permission to publish.",
+      "group": "workflow",
+      "implicit": false
+    },
+    {
+      "name": "agent-tool-boundaries",
+      "title": "Agent and MCP Tool Boundaries",
+      "description": "Design or review agent-tool and MCP boundaries: schemas, authority, untrusted results, retries, cancellation, and side effects. Not ordinary application APIs or automatic plugin installation.",
+      "group": "agent-systems",
+      "implicit": true
+    },
+    {
+      "name": "memory-context-hygiene",
+      "title": "Memory and Context Hygiene",
+      "description": "Design, debug, or use persistent agent memory when retrieval freshness, scope, provenance, or stale task state matters. Not every repository search, transcript storage, or automatic reindexing.",
+      "group": "agent-systems",
+      "implicit": true
+    },
+    {
+      "name": "edge-cloud-sync",
+      "title": "Edge and Cloud Synchronization",
+      "description": "Design or review offline edge/cloud telemetry and configuration synchronization: replay, ordering, acknowledgment, backpressure, and recovery. Not local WAL internals or a mandate to add a broker.",
+      "group": "building-systems",
+      "implicit": true
+    },
+    {
+      "name": "building-fdd-validation",
+      "title": "Building FDD Validation",
+      "description": "Implement or review building fault-detection logic against point quality, units, equipment modes, time windows, and independent fault scenarios. Not UI styling, compliance certification, or physical-control authorization.",
+      "group": "building-systems",
+      "implicit": true
+    },
+    {
+      "name": "ui-equipment-3d",
+      "title": "Equipment 3D and Telemetry Views",
+      "description": "Build or review requested equipment visualization in an existing Three.js or React Three Fiber UI: scene identity, telemetry, GPU lifetime, performance, and accessible fallbacks. Not a reason to add 3D or migrate frameworks.",
+      "group": "equipment-ui",
       "implicit": true
     }
   ]
