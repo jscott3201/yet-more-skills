@@ -1,0 +1,6 @@
+interface:
+  display_name: "Cross-Language Contract Verification"
+  short_description: "Shared fixtures and compatibility across language boundaries"
+  default_prompt: "Use $cross-language-contracts for the requested task, preserving existing contracts and reporting actual evidence."
+policy:
+  allow_implicit_invocation: true

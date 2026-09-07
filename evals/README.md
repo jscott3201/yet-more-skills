@@ -15,3 +15,9 @@ Record the case, variant, model/settings, observed result, and a short evidence 
 Use time or token measurements only when genuinely collected from comparable runs. No benchmark claim from another skill repository transfers automatically to this collection.
 
 Source: [Agent Skills evaluation guidance](https://agentskills.io/skill-creation/evaluating-skills).
+
+## Engineering and agent-experience cases
+
+[Engineering scenarios](engineering-scenarios.json) cover the four engineering/AX additions and six focused skill updates. Each listed skill has activation, nearby boundary, and difficult behavior cases. These are authored prompts and observable expectations, not executed model results.
+
+For explicit-only UI design review, invoke the positive case explicitly and also run the ordinary-task negative case without that invocation. Supply a minimal real repository or controlled tool fixture for the behavior under test; a prompt describing a bug is not by itself an executable regression fixture. Score relevant code, outputs, and tool actions against the expectations, including scope and unrun-evidence reporting. Structural tests validate scenario coverage and installer behavior, not whether a model follows a skill.

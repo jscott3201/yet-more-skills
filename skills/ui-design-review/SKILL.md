@@ -28,6 +28,12 @@ meaningful status. Avoid decorating every datum as a card, hiding important cont
 tooltips, or using color alone for operational meaning. Motion should explain a transition,
 respect reduced motion, and not compete with live data.
 
+## Walk through a real task
+
+Choose a representative task with a clear start and observable finish. Check whether the user can find the next action, understand the consequence, recognize completion, and recover from one realistic error without losing useful work. Repeated backtracking, hidden prerequisites, and unclear outcomes matter more than cosmetic novelty.
+
+Keep inspection findings separate from usability evidence. A source or browser walkthrough can suggest a problem; it does not prove a measured improvement in task success or speed. Use realistic localized content and narrow layouts when those are supported, rather than evaluating only ideal short English labels.
+
 ## Implement, inspect, refine
 
 Reuse framework-specific shadcn/local components. Inspect the rendered result when browser

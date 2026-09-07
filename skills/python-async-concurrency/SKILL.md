@@ -14,6 +14,8 @@ Use an existing structured-concurrency pattern or TaskGroup when the supported f
 
 Use try/finally and async context managers for cleanup. When catching CancelledError for cleanup, normally re-raise it. Cancellation is not an ordinary recoverable request error. Shield only an intentionally owned bounded operation and keep its task handle; shielding without supervising completion leaves orphan work.
 
+Account for eager task execution when the supported Python version or configured task factory enables it: coroutine code can run during task construction, before the caller's next statement. Establish required state before spawning and test synchronous completion as well as suspension. Do not enable eager execution as a blanket optimization. See [construction and failure cases](references/construction-and-failure.md) when task registration or sibling failure is involved.
+
 ## Define admission, time, and overload
 
 Bound both queued and active work. Placing a semaphore inside a task does not bound the number of tasks already created. Prefer bounded queues or bounded producers, with an explicit full-queue policy. Specify one logical deadline and how retries consume it; do not reset the total budget at every layer.

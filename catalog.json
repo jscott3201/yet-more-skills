@@ -1,6 +1,6 @@
 {
   "pack": "yet-more-skills",
-  "reviewed_on": "2026-09-05",
+  "reviewed_on": "2026-09-07",
   "skills": [
     {
       "name": "rust-workflow",
@@ -539,6 +539,34 @@
       "title": "Equipment 3D and Telemetry Views",
       "description": "Build or review requested equipment visualization in an existing Three.js or React Three Fiber UI: scene identity, telemetry, GPU lifetime, performance, and accessible fallbacks. Not a reason to add 3D or migrate frameworks.",
       "group": "equipment-ui",
+      "implicit": true
+    },
+    {
+      "name": "agent-cli-design",
+      "title": "Agent-Friendly CLI Design",
+      "description": "Design or review command-line interfaces used by people and agents: discoverable commands, non-interactive execution, structured output, exit status, and safe mutation. Not a mandate to add a CLI or replace its parser.",
+      "group": "agent-systems",
+      "implicit": true
+    },
+    {
+      "name": "typescript-package-boundaries",
+      "title": "TypeScript Package Boundaries",
+      "description": "Build or debug TypeScript libraries, SDKs, or Node packages at the consumer boundary: module resolution, exports, declarations, runtime support, and packed artifacts. Not ordinary React/Svelte component work or a forced ESM migration.",
+      "group": "typescript",
+      "implicit": true
+    },
+    {
+      "name": "cross-language-contracts",
+      "title": "Cross-Language Contract Verification",
+      "description": "Change or verify a contract shared by Rust, Python, and TypeScript consumers using independent fixtures and compatibility cases. Use for cross-language drift and schema evolution, not a single-language internal refactor.",
+      "group": "bindings",
+      "implicit": true
+    },
+    {
+      "name": "ui-agent-collaboration",
+      "title": "Human-Agent Collaboration UX",
+      "description": "Design or review human-agent collaboration in an application: editable proposals, scoped approval, interruption, recovery, and accessible execution state. Not generic chatbot styling, tool-server authorization alone, or permission to execute proposed actions.",
+      "group": "typescript-ui",
       "implicit": true
     }
   ]

@@ -34,6 +34,8 @@ Large tables and virtualized lists need usable keyboard navigation and truthful 
 information. Graphs, charts, and 3D views need a practical structured alternative for core
 information and actions. Do not leave configuration possible only through drag and drop.
 
+Check focused controls underneath sticky headers, footers, and overlapping panels. Keyboard support alone does not establish a usable non-dragging pointer path: provide an appropriate click/tap alternative for dragging interactions unless a relevant exception applies. Exercise both paths, including graph connections and list reordering. See [focus and dragging checks](references/interaction-checks.md) for the WCAG distinctions.
+
 ## Gather honest evidence
 
 Run the available automated checks and manual keyboard/browser checks separately. Use

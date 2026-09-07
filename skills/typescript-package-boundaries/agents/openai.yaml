@@ -1,0 +1,6 @@
+interface:
+  display_name: "TypeScript Package Boundaries"
+  short_description: "Validate TypeScript packages as consumers load them"
+  default_prompt: "Use $typescript-package-boundaries for the requested task, preserving existing contracts and reporting actual evidence."
+policy:
+  allow_implicit_invocation: true

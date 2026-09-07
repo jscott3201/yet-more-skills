@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 import shutil
 import sys
@@ -56,6 +57,28 @@ SETS.update({
     'equipment-ui': ('ui-equipment-3d',),
 })
 
+# Additive engineering and agent-experience selections.
+SETS.update({
+    'engineering-additions': ('agent-cli-design', 'typescript-package-boundaries', 'cross-language-contracts', 'ui-agent-collaboration'),
+    'agent-experience': ('agent-tool-boundaries', 'memory-context-hygiene', 'agent-cli-design', 'ui-agent-collaboration'),
+    'typescript-packages': ('typescript-contracts', 'typescript-package-boundaries'),
+    'cross-language': ('rust-api-design', 'python-api-typing', 'typescript-contracts', 'cross-language-contracts'),
+})
+
+def describe_skills(selected: list[str]) -> dict[str, object]:
+    """Return catalog metadata only; do not inspect or prepare a destination."""
+    catalog = json.loads((ROOT/'catalog.json').read_text(encoding='utf-8'))
+    rows = catalog['skills']
+    by_name = {row['name']: row for row in rows}
+    if len(by_name) != len(rows):
+        raise ValueError('Duplicate skill names in catalog.json')
+    result = [by_name[name] for name in selected]
+    for row in result:
+        if not isinstance(row['description'], str) or type(row['implicit']) is not bool:
+            raise ValueError(f"Invalid discovery metadata for {row['name']}")
+    return {'pack': catalog['pack'], 'skills': result}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--set', choices=(*SETS, 'full'), default=None,
@@ -65,10 +88,18 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument('--dest', type=Path, default=Path.home()/'.agents'/'skills',
                         help='Destination skills directory (default: ~/.agents/skills).')
     parser.add_argument('--apply', action='store_true', help='Copy files; otherwise only preview.')
+    parser.add_argument('--list', action='store_true',
+                        help='Read-only skill discovery; lists all skills unless --set/--skill filters it.')
+    parser.add_argument('--json', action='store_true',
+                        help='Emit one JSON document for --list; diagnostics remain on stderr.')
     args = parser.parse_args(argv)
+    if args.json and not args.list:
+        parser.error('--json requires --list.')
+    if args.list and args.apply:
+        parser.error('--list cannot be combined with --apply.')
     available = {p.name: p for p in (ROOT/'skills').iterdir()
                  if p.is_dir() and (p/'SKILL.md').is_file()}
-    if args.set == 'full':
+    if args.set == 'full' or (args.list and not args.set and not args.skill):
         selected = list(available)
     elif args.set:
         selected = list(SETS[args.set])
@@ -78,6 +109,18 @@ def main(argv: list[str] | None = None) -> int:
     unknown = sorted(set(selected) - set(available))
     if unknown:
         parser.error('Unknown skill(s): ' + ', '.join(unknown))
+    if args.list:
+        try:
+            listing = describe_skills(selected)
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            parser.error(f'Cannot list skills from catalog.json: {error}')
+        if args.json:
+            print(json.dumps(listing, ensure_ascii=False, indent=2))
+        else:
+            for row in listing['skills']:
+                policy = '' if row['implicit'] else ' [explicit-only]'
+                print(f"{row['name']}{policy}\n  {row['description']}")
+        return 0
     dest = args.dest.expanduser().resolve()
     if dest.exists() and not dest.is_dir():
         parser.error(f'Destination is not a directory: {dest}')

@@ -30,6 +30,8 @@ Move blocking work only when needed. A started `spawn_blocking` task cannot simp
 
 For custom atomics, write down what data an atomic publishes and which synchronization establishes visibility. An atomic counter used only for identity allocation is different from publishing initialized state. Prefer a simple lock until a measured reason and a sound ordering argument justify complexity.
 
+Distinguish cancelling a future from dropping a spawned task's handle. Dropping a Tokio JoinHandle detaches its task; timing out an owned handle can therefore leave work running. Keep an explicit owner, use cooperative cancellation or abort where appropriate, and observe termination rather than treating an abort request as completed cleanup. See [spawned-task lifetime cases](references/task-lifetime.md).
+
 ## Shutdown and verification
 
 Seal admission, let admitted work drain according to policy, signal cancellation when appropriate, and join owned tasks within the intended deadline. Preserve response/deadline processing during drain if admitted requests still depend on it. `Drop` is not an async graceful-shutdown mechanism.

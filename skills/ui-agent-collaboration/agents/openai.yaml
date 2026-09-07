@@ -1,0 +1,6 @@
+interface:
+  display_name: "Human-Agent Collaboration UX"
+  short_description: "Editable proposals, meaningful control, and honest outcomes"
+  default_prompt: "Use $ui-agent-collaboration for the requested task, preserving existing contracts and reporting actual evidence."
+policy:
+  allow_implicit_invocation: true

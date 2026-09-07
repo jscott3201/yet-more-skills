@@ -1,0 +1,6 @@
+interface:
+  display_name: "Agent-Friendly CLI Design"
+  short_description: "Predictable CLI discovery, output, and recovery"
+  default_prompt: "Use $agent-cli-design for the requested task, preserving existing contracts and reporting actual evidence."
+policy:
+  allow_implicit_invocation: true

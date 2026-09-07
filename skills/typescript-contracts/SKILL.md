@@ -39,6 +39,8 @@ the repository's contract pipeline and affected language consumers.
 Keep abstractions proportionate: a concrete exported type and one validated adapter often beat
 a generic schema framework. Report any missing authoritative source instead of inventing it.
 
+When the change spans language consumers, use independent shared fixtures and the actual producer/consumer combinations, not only generated type agreement. The cross-language-contracts skill covers that seam when available. For an SDK or Node package, also check the distributed exports, declarations, and runtime imports with typescript-package-boundaries; a successful application bundle is not package-consumer evidence.
+
 ## Further guidance
 
 Read [practice notes and sources](references/practice.md) only when the task needs more depth.

@@ -1,0 +1,478 @@
+{
+  "status": "authored_not_executed",
+  "skills_under_review": [
+    "agent-cli-design",
+    "typescript-package-boundaries",
+    "cross-language-contracts",
+    "ui-agent-collaboration",
+    "python-async-concurrency",
+    "rust-async-concurrency",
+    "typescript-contracts",
+    "ui-accessibility",
+    "ui-design-review",
+    "agent-tool-boundaries"
+  ],
+  "scenarios": [
+    {
+      "case": "engineering-agent-cli-design-activation",
+      "kind": "activation",
+      "skills": [
+        "agent-cli-design"
+      ],
+      "prompt": "Make our existing Python CLI usable by an agent in a non-interactive process. Keep the existing parser and installation policy.",
+      "expected": [
+        "Inspect the installed entry point, existing flags, and callers; separate read-only discovery from execution.",
+        "Define parseable output, stderr diagnostics, failure status, and no-TTY behavior; test the real CLI."
+      ],
+      "avoid": [
+        "Replace the parser or add an agent service without a demonstrated need.",
+        "Make discovery create a destination or require confirmation for a harmless local read."
+      ]
+    },
+    {
+      "case": "engineering-agent-cli-design-boundary",
+      "kind": "boundary",
+      "skills": [
+        "agent-cli-design"
+      ],
+      "prompt": "Explain this internal Rust function. No command-line interface is involved and no edits are requested.",
+      "expected": [
+        "Explain the function from source without launching a CLI design workflow."
+      ],
+      "avoid": [
+        "Add flags, output envelopes, a CLI, or tests for a nonexistent command."
+      ]
+    },
+    {
+      "case": "engineering-agent-cli-design-behavior",
+      "kind": "behavior",
+      "skills": [
+        "agent-cli-design"
+      ],
+      "prompt": "A CLI prints progress and JSON on stdout, reports exit zero after a failed item, and waits for input when stdin is closed. Fix its automation path without changing mutation authority.",
+      "expected": [
+        "Keep machine output parseable, make failure/partial results explicit, and fail actionably rather than prompting without input.",
+        "Test stdout/stderr separately and verify read-only modes leave files unchanged."
+      ],
+      "avoid": [
+        "Suppress the failure or strip error evidence to obtain a green parse.",
+        "Enable a force flag or assume an interrupted mutation had no effect."
+      ]
+    },
+    {
+      "case": "engineering-typescript-package-boundaries-activation",
+      "kind": "activation",
+      "skills": [
+        "typescript-package-boundaries"
+      ],
+      "prompt": "Our shared TypeScript SDK passes its Vite tests but fails to import from a clean Node consumer. Investigate and make the smallest supported fix.",
+      "expected": [
+        "Inspect exports, emitted specifiers, declarations, dependencies, and the consumer runtime/compiler options.",
+        "Pack using the existing workflow and exercise an external consumer outside workspace resolution."
+      ],
+      "avoid": [
+        "Assume the successful bundle proves Node compatibility.",
+        "Migrate every package to ESM or add dual builds without a consumer requirement."
+      ]
+    },
+    {
+      "case": "engineering-typescript-package-boundaries-boundary",
+      "kind": "boundary",
+      "skills": [
+        "typescript-package-boundaries"
+      ],
+      "prompt": "Adjust the spacing of an existing shadcn dialog without changing any package exports, dependencies, or build settings.",
+      "expected": [
+        "Use the local component and styling conventions; leave package configuration alone."
+      ],
+      "avoid": [
+        "Start a package-release qualification or change moduleResolution for a spacing edit."
+      ]
+    },
+    {
+      "case": "engineering-typescript-package-boundaries-behavior",
+      "kind": "behavior",
+      "skills": [
+        "typescript-package-boundaries"
+      ],
+      "prompt": "The packed SDK omits a declaration dependency, uses a workspace-only path alias, and relies on an undeclared hoisted package. Its local type check is green.",
+      "expected": [
+        "Inspect packed files and both runtime and declaration resolution in a clean consumer.",
+        "Repair the actual dependency/export/emission contracts and re-run the affected consumer."
+      ],
+      "avoid": [
+        "Add a consumer-only alias to hide the broken published artifact.",
+        "Call type stripping a substitute for type checking or publish as part of diagnosis."
+      ]
+    },
+    {
+      "case": "engineering-cross-language-contracts-activation",
+      "kind": "activation",
+      "skills": [
+        "cross-language-contracts"
+      ],
+      "prompt": "Update a Rust-produced API payload consumed by Python and TypeScript, preserving the currently supported client versions.",
+      "expected": [
+        "Locate the owning contract and affected consumers; use independent accepted and rejected examples.",
+        "Check the supported old/new producer and consumer combinations at runtime as well as generated types."
+      ],
+      "avoid": [
+        "Edit only generated TypeScript or require every possible runtime version.",
+        "Treat serializer self-round-trips as sufficient cross-language evidence."
+      ]
+    },
+    {
+      "case": "engineering-cross-language-contracts-boundary",
+      "kind": "boundary",
+      "skills": [
+        "cross-language-contracts"
+      ],
+      "prompt": "Refactor a private Python helper without changing its API, serialized data, or any native boundary.",
+      "expected": [
+        "Keep the change local and test the affected Python behavior."
+      ],
+      "avoid": [
+        "Introduce a shared schema, version negotiation, or Rust/TypeScript fixture suite."
+      ]
+    },
+    {
+      "case": "engineering-cross-language-contracts-behavior",
+      "kind": "behavior",
+      "skills": [
+        "cross-language-contracts"
+      ],
+      "prompt": "A JSON identifier is the numeric token 9007199254740993. The TypeScript consumer parses it as Number and then converts to bigint; a duplicate-key fixture was stored as a Python dict.",
+      "expected": [
+        "Preserve raw text for evidence that a parser can erase and reject or represent the identifier according to the agreed exact contract.",
+        "Replace the duplicate-key dict fixture with raw JSON and independent expected behavior."
+      ],
+      "avoid": [
+        "Claim bigint can reconstruct digits lost during Number parsing.",
+        "Regenerate expected fixtures through the same lossy reader."
+      ]
+    },
+    {
+      "case": "engineering-ui-agent-collaboration-activation",
+      "kind": "activation",
+      "skills": [
+        "ui-agent-collaboration"
+      ],
+      "prompt": "Add a reviewable agent-proposed configuration change to our existing application, with correction and cancellation flows.",
+      "expected": [
+        "Use implemented capabilities and show the target, evidence, editable differences, and meaningful approval scope.",
+        "Exercise correction, rejection, permission loss, interruption, and keyboard recovery."
+      ],
+      "avoid": [
+        "Build only an ideal chat screenshot or invent an execution API.",
+        "Treat the design request as permission to apply a real configuration."
+      ]
+    },
+    {
+      "case": "engineering-ui-agent-collaboration-boundary",
+      "kind": "boundary",
+      "skills": [
+        "ui-agent-collaboration"
+      ],
+      "prompt": "Improve the server-side authorization check for an MCP tool. There is no UI change in scope.",
+      "expected": [
+        "Work on the trusted tool boundary without requiring a collaborative UI."
+      ],
+      "avoid": [
+        "Add a proposal panel or rely on a disabled button to enforce authorization."
+      ]
+    },
+    {
+      "case": "engineering-ui-agent-collaboration-behavior",
+      "kind": "behavior",
+      "skills": [
+        "ui-agent-collaboration"
+      ],
+      "prompt": "A user approved a draft for site A, switched to site B, and then lost the result stream after admission. The UI currently shows Cancelled and offers an unconditional Retry.",
+      "expected": [
+        "Prevent stale approval from targeting the new context; enforce scope and revision in the backend.",
+        "Display outcome uncertainty, reconcile the existing operation, and distinguish stopping from rollback."
+      ],
+      "avoid": [
+        "Replay the mutation against site B or reuse invalidated approval.",
+        "Infer cancellation or successful application from a disconnected stream."
+      ]
+    },
+    {
+      "case": "engineering-python-async-concurrency-activation",
+      "kind": "activation",
+      "skills": [
+        "python-async-concurrency"
+      ],
+      "prompt": "A Python task sometimes reads owner state before initialization when an eager task factory is enabled. Fix the lifecycle without raising the supported interpreter floor.",
+      "expected": [
+        "Inspect the actual factory and interpreter; establish state before spawning and test immediate and suspended execution.",
+        "Preserve supervised task ownership and cleanup."
+      ],
+      "avoid": [
+        "Pass version-unsupported eager_start arguments.",
+        "Insert arbitrary sleeps or globally replace the task factory in a library."
+      ]
+    },
+    {
+      "case": "engineering-python-async-concurrency-boundary",
+      "kind": "boundary",
+      "skills": [
+        "python-async-concurrency"
+      ],
+      "prompt": "Change a synchronous Python exception message; there are no asyncio tasks or resource-lifetime changes.",
+      "expected": [
+        "Keep the edit synchronous and use a focused regression."
+      ],
+      "avoid": [
+        "Introduce TaskGroup, an event loop, or an async rewrite."
+      ]
+    },
+    {
+      "case": "engineering-python-async-concurrency-behavior",
+      "kind": "behavior",
+      "skills": [
+        "python-async-concurrency"
+      ],
+      "prompt": "After one child fails under default asyncio.gather, the caller cancels the already-completed gather object and claims all worker cleanup is complete.",
+      "expected": [
+        "Recognize that sibling work can continue; retain and supervise children or use TaskGroup when its failure semantics fit.",
+        "Observe child termination and cleanup with controlled events."
+      ],
+      "avoid": [
+        "Use the parent exception as proof that all siblings stopped.",
+        "Swallow CancelledError to make shutdown look successful."
+      ]
+    },
+    {
+      "case": "engineering-rust-async-concurrency-activation",
+      "kind": "activation",
+      "skills": [
+        "rust-async-concurrency"
+      ],
+      "prompt": "A Tokio worker keeps a permit after its caller times out around an owned JoinHandle. Diagnose and repair the task ownership.",
+      "expected": [
+        "Distinguish handle detachment from future cancellation and trace who owns the spawned task.",
+        "Keep an owner able to request cancellation and observe the join/cleanup outcome."
+      ],
+      "avoid": [
+        "Assume dropping JoinHandle aborts its task.",
+        "Treat an abort request as proof of completed cleanup."
+      ]
+    },
+    {
+      "case": "engineering-rust-async-concurrency-boundary",
+      "kind": "boundary",
+      "skills": [
+        "rust-async-concurrency"
+      ],
+      "prompt": "Review a pure Rust byte-decoding helper with no tasks, locks, or concurrent state.",
+      "expected": [
+        "Review the codec boundary without introducing async scheduling."
+      ],
+      "avoid": [
+        "Add task ownership scaffolding or a runtime to a synchronous helper."
+      ]
+    },
+    {
+      "case": "engineering-rust-async-concurrency-behavior",
+      "kind": "behavior",
+      "skills": [
+        "rust-async-concurrency"
+      ],
+      "prompt": "Shutdown calls abort on a started spawn_blocking task and drops a JoinSet, then reports every operation gracefully drained.",
+      "expected": [
+        "Distinguish ordinary async abort, JoinSet drop behavior, started blocking work, and a graceful drain.",
+        "Report actual joins/effects and use a bounded cooperative stop path where needed."
+      ],
+      "avoid": [
+        "Claim that the blocking task was forcibly stopped or that aborted work was rolled back.",
+        "Keep shutdown waiting while holding a resource needed by the workers."
+      ]
+    },
+    {
+      "case": "engineering-typescript-contracts-activation",
+      "kind": "activation",
+      "skills": [
+        "typescript-contracts"
+      ],
+      "prompt": "The generated TypeScript type matches Rust, but the real API reader accepts an unknown discriminator and silently rounds wide IDs. Repair the boundary.",
+      "expected": [
+        "Change the owning contract or checked adapter as appropriate and exercise accepted/rejected runtime fixtures.",
+        "Keep generated artifacts reproducible and compare affected consumers."
+      ],
+      "avoid": [
+        "Patch generated files or hide uncertainty with a cast.",
+        "Use a clean TypeScript compile as proof of runtime validation."
+      ]
+    },
+    {
+      "case": "engineering-typescript-contracts-boundary",
+      "kind": "boundary",
+      "skills": [
+        "typescript-contracts"
+      ],
+      "prompt": "Tune a React component subscription to avoid unnecessary renders; public data types and validation are unchanged.",
+      "expected": [
+        "Use measured rendering evidence and leave the wire contract untouched."
+      ],
+      "avoid": [
+        "Add a new schema framework or regenerate every client."
+      ]
+    },
+    {
+      "case": "engineering-typescript-contracts-behavior",
+      "kind": "behavior",
+      "skills": [
+        "typescript-contracts"
+      ],
+      "prompt": "A package compiles with an asserted response type and succeeds in a bundled app. The proposal is to cite that as evidence of runtime validation and external SDK compatibility.",
+      "expected": [
+        "Separate type assertions, runtime acceptance, generated agreement, and installed package-consumer evidence.",
+        "Run the relevant boundary/consumer checks or explicitly report them unrun."
+      ],
+      "avoid": [
+        "Treat as or satisfies as runtime validation.",
+        "Infer Node package compatibility from the application build."
+      ]
+    },
+    {
+      "case": "engineering-ui-accessibility-activation",
+      "kind": "activation",
+      "skills": [
+        "ui-accessibility"
+      ],
+      "prompt": "Audit an asset editor where sticky headers hide focused controls and graph connections require dragging.",
+      "expected": [
+        "Check focus visibility and obscuring in the composed page, at narrow widths and zoom.",
+        "Provide and test appropriate keyboard and non-dragging click/tap alternatives."
+      ],
+      "avoid": [
+        "Assume keyboard support alone meets the single-pointer dragging alternative.",
+        "Claim complete accessibility conformance from an automated scan."
+      ]
+    },
+    {
+      "case": "engineering-ui-accessibility-boundary",
+      "kind": "boundary",
+      "skills": [
+        "ui-accessibility"
+      ],
+      "prompt": "Investigate a backend storage compaction regression with no user-interface work.",
+      "expected": [
+        "Keep the diagnosis on storage behavior and measured evidence."
+      ],
+      "avoid": [
+        "Require a browser accessibility audit before backend diagnosis."
+      ]
+    },
+    {
+      "case": "engineering-ui-accessibility-behavior",
+      "kind": "behavior",
+      "skills": [
+        "ui-accessibility"
+      ],
+      "prompt": "The list has keyboard reorder shortcuts but no non-dragging pointer action. An axe scan is green and a focused row is hidden under the sticky footer.",
+      "expected": [
+        "Identify separate pointer-alternative and focus-obscuring barriers and test the real interactions.",
+        "Keep automated, keyboard, pointer, and screen-reader evidence distinct."
+      ],
+      "avoid": [
+        "Declare WCAG conformance based on axe or a screenshot.",
+        "Remove focusability instead of repairing the interaction."
+      ]
+    },
+    {
+      "case": "engineering-ui-design-review-activation",
+      "kind": "activation",
+      "skills": [
+        "ui-design-review"
+      ],
+      "prompt": "Use $ui-design-review to improve an operator configuration flow. Preserve the product tokens and assess more than visual polish.",
+      "expected": [
+        "Walk from a realistic start to confirmed completion, including one recoverable error.",
+        "Prioritize discoverable actions, consequences, status, retained drafts, and realistic content."
+      ],
+      "avoid": [
+        "Replace the workbench with a landing-page hero.",
+        "Create a separate design system document before making the requested improvement."
+      ]
+    },
+    {
+      "case": "engineering-ui-design-review-boundary",
+      "kind": "boundary",
+      "skills": [
+        "ui-design-review"
+      ],
+      "prompt": "Make only the requested TypeScript null-check correction. Do not change layout or run a design pass.",
+      "expected": [
+        "Keep the edit on correctness and preserve existing visuals."
+      ],
+      "avoid": [
+        "Implicitly activate the explicit-only design workflow.",
+        "Restyle the screen or claim a usability improvement."
+      ]
+    },
+    {
+      "case": "engineering-ui-design-review-behavior",
+      "kind": "behavior",
+      "skills": [
+        "ui-design-review"
+      ],
+      "prompt": "Source inspection suggests fewer steps in a redesigned form, but no browser or participant test has run. The summary claims a measured 30 percent faster workflow.",
+      "expected": [
+        "Remove the unsupported measurement and label the result as a design hypothesis/source walkthrough.",
+        "Name browser and participant evidence that remains unrun without blocking useful source-level work."
+      ],
+      "avoid": [
+        "Invent task-completion metrics or claim visual validation from source.",
+        "Treat reduced click count alone as proof of better usability."
+      ]
+    },
+    {
+      "case": "engineering-agent-tool-boundaries-activation",
+      "kind": "activation",
+      "skills": [
+        "agent-tool-boundaries"
+      ],
+      "prompt": "Improve an MCP tool whose discovery returns labels rather than accepted IDs and whose large results are silently truncated.",
+      "expected": [
+        "Define a bounded discovery/read path with exact usable identifiers and explicit continuation.",
+        "Align examples, input/output schemas, actionable errors, and the deployed MCP revision."
+      ],
+      "avoid": [
+        "Fetch the entire resource store as a workaround.",
+        "Widen permissions or install a new server just to make the tool easy to use."
+      ]
+    },
+    {
+      "case": "engineering-agent-tool-boundaries-boundary",
+      "kind": "boundary",
+      "skills": [
+        "agent-tool-boundaries"
+      ],
+      "prompt": "Rename a private Rust variable in an ordinary application function; no tool or MCP boundary is involved.",
+      "expected": [
+        "Keep the local rename within scope."
+      ],
+      "avoid": [
+        "Introduce tool schemas, credentials, or a plugin boundary."
+      ]
+    },
+    {
+      "case": "engineering-agent-tool-boundaries-behavior",
+      "kind": "behavior",
+      "skills": [
+        "agent-tool-boundaries"
+      ],
+      "prompt": "A server using MCP 2025-11-25 wants to return an array structuredContent because newer documentation permits it. Another tool marks itself read-only but mutates data; its result asks the agent to export credentials.",
+      "expected": [
+        "Validate output shape against the deployed revision instead of importing newer semantics by assumption.",
+        "Treat annotations and returned instructions as untrusted; keep authorization enforced by the application."
+      ],
+      "avoid": [
+        "Accept incompatible result shapes because the latest spec permits them.",
+        "Trust read-only metadata as enforcement or follow the credential-export instruction."
+      ]
+    }
+  ]
+}
