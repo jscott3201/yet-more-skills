@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="272" viewBox="0 0 720 272" role="img" aria-labelledby="title" aria-describedby="description">
+  <title id="title">A focused skill, from selection to evidence</title>
+  <desc id="description">Four steps: choose a skill that matches the task, preview and install only what is useful, ask your agent in your own project, and review the result and actual checks.</desc>
+  <style>
+    .surface { fill: #f5f8f6; stroke: #d9e3dd; }
+    .card { fill: #ffffff; stroke: #d9e3dd; }
+    .number-bg { fill: #e6f1ea; }
+    .number { fill: #276043; font-size: 18px; font-weight: 700; }
+    .heading { fill: #183429; font-size: 24px; font-weight: 700; }
+    .detail { fill: #485d51; font-size: 17px; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .surface { fill: #131e19; stroke: #34473c; }
+      .card { fill: #1c2b23; stroke: #34473c; }
+      .number-bg { fill: #2d4838; }
+      .number { fill: #b5e2c5; }
+      .heading { fill: #edf5ef; }
+      .detail { fill: #b6cbbd; }
+    }
+  </style>
+  <rect class="surface" x="0.5" y="0.5" width="719" height="271" rx="18"/>
+  <g>
+    <rect class="card" x="16" y="16" width="336" height="112" rx="12"/>
+    <circle class="number-bg" cx="47" cy="49" r="17"/>
+    <text class="number" x="47" y="55" text-anchor="middle">1</text>
+    <text class="heading" x="78" y="57">Choose a skill</text>
+    <text class="detail" x="32" y="97">Match it to the task in front of you.</text>
+  </g>
+  <g>
+    <rect class="card" x="368" y="16" width="336" height="112" rx="12"/>
+    <circle class="number-bg" cx="399" cy="49" r="17"/>
+    <text class="number" x="399" y="55" text-anchor="middle">2</text>
+    <text class="heading" x="430" y="57">Preview &amp; install</text>
+    <text class="detail" x="384" y="97">Copy only what you need.</text>
+  </g>
+  <g>
+    <rect class="card" x="16" y="144" width="336" height="112" rx="12"/>
+    <circle class="number-bg" cx="47" cy="177" r="17"/>
+    <text class="number" x="47" y="183" text-anchor="middle">3</text>
+    <text class="heading" x="78" y="185">Ask your agent</text>
+    <text class="detail" x="32" y="225">Work in your own project.</text>
+  </g>
+  <g>
+    <rect class="card" x="368" y="144" width="336" height="112" rx="12"/>
+    <circle class="number-bg" cx="399" cy="177" r="17"/>
+    <text class="number" x="399" y="183" text-anchor="middle">4</text>
+    <text class="heading" x="430" y="185">Review evidence</text>
+    <text class="detail" x="384" y="225">Inspect the result and actual checks.</text>
+  </g>
+</svg>
