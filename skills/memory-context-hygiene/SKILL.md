@@ -22,7 +22,9 @@ Use supported update/supersession behavior rather than creating competing versio
 
 ## Keep context economical
 
-Bring back the minimum evidence and unresolved decisions, not an entire project archive. Preserve provenance through compaction so later agents can distinguish observed facts from prior interpretation. Use ordinary source search when a memory service is missing; do not install, reindex, migrate, or invent memory APIs to proceed.
+Retrieve for the next unresolved question, with the relevant project and task scope, rather than loading a whole project archive or memory timeline. Use a supported limit and follow-up reference; broaden when missing coverage or contradictory evidence matters. Reuse an adequate result until new edits, changed scope, or stale state invalidate it.
+
+Preserve user constraints, authority, unresolved failures, operation outcomes, and source pointers through compaction. A summary is lossy and cannot replace decisive source. Do not compress repeatedly by habit or claim that writing a summary removes tokens already in the host's context; actual masking and compaction require runtime support. Use ordinary source search when a memory service is missing; do not install, reindex, migrate, or invent memory APIs to proceed.
 
 For memory-system changes, test tenant/project isolation, stale retrieval, duplicate writes, conflicts, interrupted persistence, deletion behavior, and recovery. Separate source-of-truth records from derived embeddings, graphs, and caches. Rebuilding a derived index must not silently resurrect deleted or superseded authority.
 

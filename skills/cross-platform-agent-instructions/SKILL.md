@@ -15,7 +15,9 @@ Maintain one clear semantic workflow and isolate harness-specific settings. A si
 
 Read the existing skill, relevant repository instructions, supported discovery roots, and installed harness documentation. Check for duplicate names and overlapping triggers. A repository catalog describes the collection; it does not automatically control what a runtime loads.
 
-Use a required `SKILL.md` with a short name and a precise description. Front-load the real task and nearest exclusion so the trigger remains useful when a host shortens metadata. Keep decision-critical guidance in the body and link deeper examples only when needed. Add a script only for repeated deterministic work worth maintaining.
+Use a required `SKILL.md` with a short name and a precise description. Front-load the real task and nearest exclusion so the trigger remains useful when a host shortens metadata. Treat discovery metadata and activated body size separately: a shorter body does not shrink an already exposed catalog. Prefer focused installations and local selection over loading every specialist.
+
+Keep decision-critical guidance and failure boundaries in the body. Link each deeper reference with the question it answers; do not require agents to read every reference or recursively load neighboring skills. Remove generic tutorials and duplicated examples before removing safety or correctness rules. Add a script only for repeated deterministic work worth maintaining. Evaluate task success and total work, not a word-count target alone.
 
 For Codex, put invocation policy and display metadata in `agents/openai.yaml`. Set explicit-only workflows accordingly. Other hosts may ignore that file; verify their equivalent or keep the workflow unexposed there. Prose saying “explicit only” is not a runtime permission boundary. Do not copy another host's command interpolation or hooks into portable instructions as though they execute everywhere.
 

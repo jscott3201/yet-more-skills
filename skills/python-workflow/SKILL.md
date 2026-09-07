@@ -10,7 +10,7 @@ Read AGENTS.md and the relevant package before editing. Treat scripts, installed
 
 ## Establish the execution context
 
-Locate pyproject.toml, lock/requirements files, source layout, tests, task scripts, and CI. Identify the interpreter executable, supported Python floor, package manager, build backend, formatter, type checker, and enabled pytest plugins. Do not infer a global 3.14 minimum from one repository or assume an activated environment is the one the command uses. Locate nested Python projects and excluded Rust binding crates.
+Start with the owning package and relevant pyproject.toml, source, test, and command definitions. Establish the interpreter and package origin when execution or an environment mismatch makes them relevant. Inspect dependency, build-backend, typing, and pytest-plugin settings as needed; locating a lockfile does not mean reading it in full. Reuse known environment facts instead of collecting every dependency or every test for each edit. Do not infer a global 3.14 minimum from one repository or assume an activated environment is the one the command uses. Expand to nested projects and Rust binding crates when the boundary crosses them.
 
 For a mixed package, map Python orchestration -> binding -> Rust core. Keep wire parsing, durable storage, and established native invariants in their owning layer. Avoid implementing a second protocol engine in the Python wrapper. A missing tool is an explicit limitation, not permission to install globally or silently change the stack.
 

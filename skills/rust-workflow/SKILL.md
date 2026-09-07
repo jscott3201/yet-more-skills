@@ -14,7 +14,7 @@ Read applicable `AGENTS.md`, task instructions, the nearest `Cargo.toml`, worksp
 
 Use the installed language server or repository code graph for callers and dependency direction when available; verify its coverage and confirm decisive claims in source. Do not require a memory service, a particular MCP, or a machine-specific path. With no graph tool, use targeted search and Cargo metadata.
 
-Start with cheap inspection. `cargo metadata --no-deps --format-version 1` identifies workspace packages; use `--locked` where a lockfile is authoritative. Metadata without dependencies is not a transitive dependency analysis. Cargo commands can resolve dependencies or invoke build scripts later: respect network and execution permissions.
+Read manifests and configuration sections relevant to the affected crate; reuse established workspace facts instead of dumping every manifest, lockfile, or dependency. When package ownership is unclear, `cargo metadata --no-deps --format-version 1` can identify workspace packages; project its output to the needed names, paths, or targets. Do not run it as a mandatory preflight when the owner is known. Use `--locked` where a lockfile is authoritative. Metadata without dependencies is not a transitive dependency analysis. Cargo commands may resolve dependencies or invoke build scripts later: respect network and execution permissions.
 
 ## Choose the smallest useful workflow
 

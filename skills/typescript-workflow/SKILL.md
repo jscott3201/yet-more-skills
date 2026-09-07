@@ -7,11 +7,18 @@ license: MIT OR Apache-2.0
 
 ## Start with the actual application
 
-Read the applicable repository instructions, task, package scripts, lockfile/package manager,
-TypeScript configuration, and the nearest feature. Establish React versus Svelte, plain Vite
-versus SvelteKit, and browser versus server execution. Inspect existing tokens and local UI
-components before proposing a new design. Declared package versions are not proof that the
-current environment has installed them.
+Start with applicable instructions, the requested feature, its component or data owner, and
+relevant package scripts. Inspect the needed TypeScript options and package-manager metadata,
+not an entire lockfile or generated client by default. Reuse established React/Svelte,
+Vite/SvelteKit, and browser/server context. Inspect existing tokens and local components for
+visual changes, not as a prerequisite for every logic fix. Declared versions are not proof
+that the current environment has installed them.
+
+A local UI correction starts with its relevant states and tests, not every screen or browser
+matrix. Broaden for shared tokens, routing, generated contracts, security, or cross-view state.
+Use scoped DOM, console, or trace evidence to diagnose behavior; inspect a rendered view when
+visual or accessibility evidence is needed. Do not recapture unchanged full-page snapshots or
+load all trace data repeatedly, and never treat source inspection as browser validation.
 
 Follow the existing delivery procedure. This skill grants no authority to install tools,
 change model configuration, create CI, publish, or perform Git/GitHub mutations.

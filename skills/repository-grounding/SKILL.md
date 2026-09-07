@@ -12,7 +12,11 @@ Read enough of the actual repository to work safely. Scale the inspection to the
 
 Read applicable instructions and the requested issue, handoff, or plan. Identify the working directory, intended branch or PR, relevant source and tests, and unrelated work to preserve. Inspect current files before treating an old handoff as implementation evidence. Do not reset, clean, stash, or move someone else's changes to make the workspace convenient.
 
-Trace the behavior being changed through its owner and important callers. Check relevant public contracts, generated files, dependency boundaries, and prerequisites. Prefer focused file/symbol searches over repeated whole-repository inventories. Use an available code index or memory service when it helps; verify its coverage and confirm consequential claims in source. Missing optional tools are not a blocker to ordinary file inspection. Do not install or rebuild an index just to complete this step.
+Start with the named path or nearest owning package, the relevant symbol, and its meaningful test. Search names or signatures before retrieving large bodies; read a complete semantic unit with the imports, invariants, or callers needed to interpret it. Batch adjacent reads that answer the same question rather than making many tiny calls. Do not load the whole tree, lockfile, plan archive, or every skill reference as an orientation ritual.
+
+Trace important callers and contracts as the change requires. Expand when the owner is unknown, a result is incomplete, a test contradicts the model, or a public, generated, concurrency, persistence, or security boundary is affected. Stop orientation once the owner, relevant contract, and validation path are clear; implementation may reveal a new question. A narrow search is not evidence of repository-wide absence.
+
+Use an available code index or memory service when it helps; confirm consequential claims in source and check coverage when relying on absence. Missing optional tools are not a blocker. Do not install or rebuild an index just to complete this step.
 
 Read the repository's actual validation commands and their package, feature, and environment scope. A familiar command is not necessarily the project's gate. Separate focused checks from staged release qualification; preserve native-only platform policy where applicable.
 

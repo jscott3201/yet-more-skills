@@ -6,7 +6,9 @@ license: MIT OR Apache-2.0
 
 # Parallel Work Lanes
 
-Use concurrency where it removes waiting without creating shared-state confusion. Follow actual repository and harness rules. Start with two lanes when that is sufficient; choose the number from independence, resources, and review capacity rather than a universal limit.
+Use concurrency where independent work repays startup and integration overhead. A faster wall clock is not automatically lower total token usage. Follow actual repository and harness rules; keep a single lane when there is no useful separation, and choose worker count from independent outcomes rather than available slots.
+
+Keep each worker's context local to its question. Share relevant constraints and interface decisions once, not whole transcripts or all skill bodies. Return findings with source pointers and actual evidence. Do not have the parent repeat every reader's survey or recursively delegate a bounded lookup. Integrate consequential results and stop redundant work when its question is resolved.
 
 ## Find real independence
 

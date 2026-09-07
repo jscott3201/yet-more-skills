@@ -1,0 +1,6 @@
+interface:
+  display_name: "Right-Sized Agent Work"
+  short_description: "Scoped context, bounded output, and proportionate effort"
+  default_prompt: "Use $context-efficiency to reduce avoidable work while preserving the requested outcome, authority, and required evidence."
+policy:
+  allow_implicit_invocation: true

@@ -24,6 +24,8 @@ Memory or an index can supply context when available; it is not a prerequisite. 
 
 ## Use the smallest useful form
 
-A short Markdown note with outcome, changed areas, evidence, open issues, and next action is usually enough. Reuse an existing handoff rather than creating competing status documents. Write to a project or program repository only when that destination is part of the request.
+A short Markdown note with outcome, changed areas, evidence, open issues, and next action is usually enough. Lead with the next action and the few facts needed to take it; put deeper evidence behind usable file, symbol, section, or tool-resource references. Retain disproved hypotheses only when they prevent likely repeated work. Do not repeat full plans or source bodies already reachable from those pointers.
+
+Verify that the recipient can actually retrieve a referenced artifact; an ephemeral path in one worker's sandbox may be inaccessible to another. Carry a minimal necessary excerpt when the source cannot travel, without exporting private material outside its permitted scope. Reuse an existing handoff rather than creating competing status documents. Write to a project or program repository only when that destination is part of the request.
 
 Do not invent missing results, impose a stop after every small edit, or promise work that will happen outside the current execution. State exactly where the next person or agent should pick up.

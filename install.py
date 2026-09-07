@@ -65,7 +65,8 @@ SETS.update({
     'cross-language': ('rust-api-design', 'python-api-typing', 'typescript-contracts', 'cross-language-contracts'),
 })
 
-def describe_skills(selected: list[str]) -> dict[str, object]:
+def describe_skills(selected: list[str], *, search: str | None = None,
+                    limit: int | None = None) -> dict[str, object]:
     """Return catalog metadata only; do not inspect or prepare a destination."""
     catalog = json.loads((ROOT/'catalog.json').read_text(encoding='utf-8'))
     rows = catalog['skills']
@@ -76,7 +77,19 @@ def describe_skills(selected: list[str]) -> dict[str, object]:
     for row in result:
         if not isinstance(row['description'], str) or type(row['implicit']) is not bool:
             raise ValueError(f"Invalid discovery metadata for {row['name']}")
-    return {'pack': catalog['pack'], 'skills': result}
+    if search is not None:
+        terms = search.casefold().split()
+        result = [row for row in result if all(
+            term in ' '.join(str(row.get(key, '')) for key in
+                             ('name', 'title', 'description', 'group')).casefold()
+            for term in terms
+        )]
+    listing = {'pack': catalog['pack'], 'skills': result}
+    if limit is not None:
+        listing['total_matches'] = len(result)
+        listing['truncated'] = len(result) > limit
+        listing['skills'] = result[:limit]
+    return listing
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -92,7 +105,17 @@ def main(argv: list[str] | None = None) -> int:
                         help='Read-only skill discovery; lists all skills unless --set/--skill filters it.')
     parser.add_argument('--json', action='store_true',
                         help='Emit one JSON document for --list; diagnostics remain on stderr.')
+    parser.add_argument('--search', metavar='TEXT',
+                        help='With --list, match all whitespace-separated words in catalog metadata (case-insensitive substrings).')
+    parser.add_argument('--limit', type=int, metavar='N',
+                        help='With --list, return at most N skills and disclose omitted matches; no limit by default.')
     args = parser.parse_args(argv)
+    if (args.search is not None or args.limit is not None) and not args.list:
+        parser.error('--search and --limit require --list.')
+    if args.search is not None and not args.search.strip():
+        parser.error('--search requires non-empty text.')
+    if args.limit is not None and args.limit < 1:
+        parser.error('--limit must be a positive integer.')
     if args.json and not args.list:
         parser.error('--json requires --list.')
     if args.list and args.apply:
@@ -111,7 +134,7 @@ def main(argv: list[str] | None = None) -> int:
         parser.error('Unknown skill(s): ' + ', '.join(unknown))
     if args.list:
         try:
-            listing = describe_skills(selected)
+            listing = describe_skills(selected, search=args.search, limit=args.limit)
         except (OSError, ValueError, KeyError, TypeError) as error:
             parser.error(f'Cannot list skills from catalog.json: {error}')
         if args.json:
@@ -120,6 +143,10 @@ def main(argv: list[str] | None = None) -> int:
             for row in listing['skills']:
                 policy = '' if row['implicit'] else ' [explicit-only]'
                 print(f"{row['name']}{policy}\n  {row['description']}")
+            if not listing['skills']:
+                print('No matching skills in the selected catalog scope.')
+            if listing.get('truncated'):
+                print(f"Showing {len(listing['skills'])} of {listing['total_matches']} matches; narrow --search or increase --limit.")
         return 0
     dest = args.dest.expanduser().resolve()
     if dest.exists() and not dest.is_dir():

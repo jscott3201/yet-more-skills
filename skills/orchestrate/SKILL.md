@@ -12,7 +12,9 @@ Guide one coherent requested outcome from source inspection through implementati
 
 Confirm the goal and inspect the affected source, instructions, and existing checks. Reuse context already established. For a small task, implement directly when authorized. For substantial work, form a compact outcome and acceptance brief; use specialist skills only for the boundaries actually involved.
 
-Delegate when a question or change can be owned independently and the available harness supports it. Give each agent the relevant files, goal, exclusions, shared-interface owner, and expected evidence. Use configured roles and models rather than hard-coded names. Without subagents, do the same work locally. Independent read-only research can run alongside implementation when useful; do not spawn agents just to fill a role list.
+Delegate only when independent work or context isolation repays setup, duplicated instructions, review, and integration. A small known-path lookup usually stays local. Give each worker one question or outcome, relevant paths, authority, exclusions, and the expected evidence; do not clone the entire conversation or ask every worker to survey the repository. Use configured roles and models, not hard-coded names or unauthorized cheaper-model switches.
+
+Request conclusions with source pointers, actual checks, and unresolved issues rather than full transcripts. Verify consequential claims without repeating all discovery. Stop redundant exploration when its question is answered; preserve useful partial work. Judge total work across parent and workers, not just the coordinator's visible context. Without subagents, do the same work locally.
 
 Avoid simultaneous writers to the same logical state. For intentional parallel implementation, agree on independent lanes and who integrates shared changes. Do not run competing implementations or contending performance measurements by default.
 

@@ -568,6 +568,13 @@
       "description": "Design or review human-agent collaboration in an application: editable proposals, scoped approval, interruption, recovery, and accessible execution state. Not generic chatbot styling, tool-server authorization alone, or permission to execute proposed actions.",
       "group": "typescript-ui",
       "implicit": true
+    },
+    {
+      "name": "context-efficiency",
+      "title": "Right-Sized Agent Work",
+      "description": "Reduce agent token waste from excessive retrieval, tool output, repeated exploration, or delegation. Use for context/cost problems; not auth tokens, UI design tokens, or permission to skip required evidence.",
+      "group": "workflow",
+      "implicit": true
     }
   ]
 }

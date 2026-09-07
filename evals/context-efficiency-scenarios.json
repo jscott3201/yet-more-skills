@@ -1,0 +1,579 @@
+{
+  "status": "authored_not_executed",
+  "skills_under_review": [
+    "context-efficiency",
+    "repository-grounding",
+    "source-verification",
+    "orchestrate",
+    "parallel-portfolio",
+    "handoff-continuity",
+    "memory-context-hygiene",
+    "cross-platform-agent-instructions",
+    "rust-workflow",
+    "python-workflow",
+    "typescript-workflow"
+  ],
+  "scenarios": [
+    {
+      "case": "efficiency-context-efficiency-activation",
+      "kind": "activation",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "Use $context-efficiency: an agent reads every module, loads all references, and spawns reviewers for a known-path local fix. Reduce avoidable work.",
+      "expected": [
+        "Start with the owner and meaningful test; select only useful context and retain required validation.",
+        "Avoid a new budget ceremony or compulsory tooling."
+      ],
+      "avoid": [
+        "Read every optimization reference before acting.",
+        "Interpret savings as permission to skip checks."
+      ]
+    },
+    {
+      "case": "efficiency-context-efficiency-boundary",
+      "kind": "boundary",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "Explain the difference between authentication tokens and UI design tokens; no agent-cost issue is involved.",
+      "expected": [
+        "Answer that question without starting an agent-context optimization workflow."
+      ],
+      "avoid": [
+        "Activate based only on the word token."
+      ]
+    },
+    {
+      "case": "efficiency-context-efficiency-behavior",
+      "kind": "behavior",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "A context-budget target is nearly exhausted, but the relevant persistence invariant and required regression remain unchecked.",
+      "expected": [
+        "Preserve correctness evidence and report an honest incomplete checkpoint if the hard budget prevents completion.",
+        "Do not silently narrow the promised work."
+      ],
+      "avoid": [
+        "Claim success or remove safety-critical context to meet a byte target."
+      ]
+    },
+    {
+      "case": "efficiency-repository-grounding-activation",
+      "kind": "activation",
+      "skills": [
+        "repository-grounding"
+      ],
+      "prompt": "Fix a local bug at a supplied function path. The current package and validation command are already established.",
+      "expected": [
+        "Read the affected semantic unit and test, reusing valid context.",
+        "Skip a fresh whole-repository inventory."
+      ],
+      "avoid": [
+        "Dump all manifests, lockfiles, and architecture notes."
+      ]
+    },
+    {
+      "case": "efficiency-repository-grounding-boundary",
+      "kind": "boundary",
+      "skills": [
+        "repository-grounding"
+      ],
+      "prompt": "Change only a spelling mistake in the already-visible comment.",
+      "expected": [
+        "Apply the small authorized correction without a grounding ritual."
+      ],
+      "avoid": [
+        "Start an architecture survey or ask for a formal scope document."
+      ]
+    },
+    {
+      "case": "efficiency-repository-grounding-behavior",
+      "kind": "behavior",
+      "skills": [
+        "repository-grounding"
+      ],
+      "prompt": "A narrow lookup located the Rust function, but a public caller and lifetime invariant are outside the excerpt.",
+      "expected": [
+        "Expand to the affected contract and caller before editing.",
+        "Treat narrow retrieval as a starting point, not a completeness claim."
+      ],
+      "avoid": [
+        "Keep an arbitrary line or file limit despite missing invariants."
+      ]
+    },
+    {
+      "case": "efficiency-source-verification-activation",
+      "kind": "activation",
+      "skills": [
+        "source-verification"
+      ],
+      "prompt": "Verify one version-sensitive behavior using the installed version and the linked official documentation section.",
+      "expected": [
+        "Resolve the actual claim using the matching primary source.",
+        "Stop that search once the decision has adequate evidence."
+      ],
+      "avoid": [
+        "Gather many corroborating tutorials with no remaining question."
+      ]
+    },
+    {
+      "case": "efficiency-source-verification-boundary",
+      "kind": "boundary",
+      "skills": [
+        "source-verification"
+      ],
+      "prompt": "Reformat this provided paragraph without adding factual claims.",
+      "expected": [
+        "Perform the requested rewrite without an external research pass."
+      ],
+      "avoid": [
+        "Search the web or collect citations for unchanged prose by default."
+      ]
+    },
+    {
+      "case": "efficiency-source-verification-behavior",
+      "kind": "behavior",
+      "skills": [
+        "source-verification"
+      ],
+      "prompt": "The first primary page describes a newer API than the deployed library, and another source contradicts it.",
+      "expected": [
+        "Follow the relevant version or authoritative implementation until the discrepancy is resolved or clearly bounded."
+      ],
+      "avoid": [
+        "Stop after one source merely to save tokens."
+      ]
+    },
+    {
+      "case": "efficiency-orchestrate-activation",
+      "kind": "activation",
+      "skills": [
+        "orchestrate"
+      ],
+      "prompt": "Use $orchestrate for this authorized small end-to-end fix. Its path and regression are known.",
+      "expected": [
+        "Implement directly with the necessary checks and proportionate review.",
+        "Avoid worker startup when it adds only duplicated discovery."
+      ],
+      "avoid": [
+        "Spawn a fixed role panel or summarize the full transcript for each role."
+      ]
+    },
+    {
+      "case": "efficiency-orchestrate-boundary",
+      "kind": "boundary",
+      "skills": [
+        "orchestrate"
+      ],
+      "prompt": "Explain this function only; do not edit or coordinate delivery.",
+      "expected": [
+        "Keep the answer explanatory and do not activate an end-to-end workflow."
+      ],
+      "avoid": [
+        "Open a PR, begin implementation, or create coordinator artifacts."
+      ]
+    },
+    {
+      "case": "efficiency-orchestrate-behavior",
+      "kind": "behavior",
+      "skills": [
+        "orchestrate"
+      ],
+      "prompt": "A worker already returned grounded source pointers and checks. The coordinator proposes repeating its entire repository survey to save uncertainty.",
+      "expected": [
+        "Inspect consequential evidence and integrate the result without replaying every discovery step.",
+        "Include worker setup and duplication in any cost claim."
+      ],
+      "avoid": [
+        "Count only the parent context or blindly trust an unsupported worker conclusion."
+      ]
+    },
+    {
+      "case": "efficiency-parallel-portfolio-activation",
+      "kind": "activation",
+      "skills": [
+        "parallel-portfolio"
+      ],
+      "prompt": "Use $parallel-portfolio for independently owned Python and Rust changes with a settled shared contract.",
+      "expected": [
+        "Give bounded lane-specific context and a shared integration owner.",
+        "Return findings and evidence pointers instead of transcripts."
+      ],
+      "avoid": [
+        "Send all skill bodies and full parent history to every worker."
+      ]
+    },
+    {
+      "case": "efficiency-parallel-portfolio-boundary",
+      "kind": "boundary",
+      "skills": [
+        "parallel-portfolio"
+      ],
+      "prompt": "Make one local CSS correction; parallel implementation was not requested.",
+      "expected": [
+        "Keep the correction local without a parallel workflow."
+      ],
+      "avoid": [
+        "Create multiple speculative implementations."
+      ]
+    },
+    {
+      "case": "efficiency-parallel-portfolio-behavior",
+      "kind": "behavior",
+      "skills": [
+        "parallel-portfolio"
+      ],
+      "prompt": "Parallel work was requested, but both proposed writers need the same unsettled schema and fixture state.",
+      "expected": [
+        "Keep the shared surface owned or sequence it before genuinely independent work.",
+        "Explain the dependency without inventing a policy-change requirement."
+      ],
+      "avoid": [
+        "Spend tokens on conflicting lanes merely to occupy workers."
+      ]
+    },
+    {
+      "case": "efficiency-handoff-continuity-activation",
+      "kind": "activation",
+      "skills": [
+        "handoff-continuity"
+      ],
+      "prompt": "Hand this unfinished task to a new worker without making them reread the whole conversation.",
+      "expected": [
+        "Lead with the next action, binding constraints, actual checks, and retrievable evidence.",
+        "Keep only useful resolved hypotheses."
+      ],
+      "avoid": [
+        "Copy all source bodies, raw logs, and planning history."
+      ]
+    },
+    {
+      "case": "efficiency-handoff-continuity-boundary",
+      "kind": "boundary",
+      "skills": [
+        "handoff-continuity"
+      ],
+      "prompt": "Complete this one-line correction in the current session with no change of owner.",
+      "expected": [
+        "Finish and report the actual result without a new handoff artifact."
+      ],
+      "avoid": [
+        "Stop to create a mandatory continuity note."
+      ]
+    },
+    {
+      "case": "efficiency-handoff-continuity-behavior",
+      "kind": "behavior",
+      "skills": [
+        "handoff-continuity"
+      ],
+      "prompt": "The proposed handoff points only to a path inside a destroyed worker sandbox; the recipient has no access.",
+      "expected": [
+        "Use an approved accessible artifact or a minimal necessary excerpt that preserves scope and uncertainty."
+      ],
+      "avoid": [
+        "Claim the pointer is usable or export private raw data to an unauthorized service."
+      ]
+    },
+    {
+      "case": "efficiency-memory-context-hygiene-activation",
+      "kind": "activation",
+      "skills": [
+        "memory-context-hygiene"
+      ],
+      "prompt": "Recover the relevant prior decision for this repository without loading the entire memory timeline.",
+      "expected": [
+        "Query the specific project and decision; retain source and freshness conditions."
+      ],
+      "avoid": [
+        "Retrieve all memories or rebuild an index before ordinary work."
+      ]
+    },
+    {
+      "case": "efficiency-memory-context-hygiene-boundary",
+      "kind": "boundary",
+      "skills": [
+        "memory-context-hygiene"
+      ],
+      "prompt": "Find a function in the current source when no prior decision or persistent memory is relevant.",
+      "expected": [
+        "Use direct repository navigation without a memory-management workflow."
+      ],
+      "avoid": [
+        "Create memory records for every file read."
+      ]
+    },
+    {
+      "case": "efficiency-memory-context-hygiene-behavior",
+      "kind": "behavior",
+      "skills": [
+        "memory-context-hygiene"
+      ],
+      "prompt": "An old compact summary says a command failed, but live evidence says the outcome is unknown after admission. The agent proposes another summary and an automatic retry.",
+      "expected": [
+        "Preserve live uncertainty and reconcile before retrying.",
+        "Do not claim a new text summary removes prior host context."
+      ],
+      "avoid": [
+        "Compress away the unknown outcome or treat memory as current execution authority."
+      ]
+    },
+    {
+      "case": "efficiency-cross-platform-agent-instructions-activation",
+      "kind": "activation",
+      "skills": [
+        "cross-platform-agent-instructions"
+      ],
+      "prompt": "Improve this skill pack so agents do not load every linked reference or overlapping specialist.",
+      "expected": [
+        "Keep critical rules in the body and attach selective reading triggers to deeper references.",
+        "Evaluate discovery metadata separately from activated bodies."
+      ],
+      "avoid": [
+        "Minimize word count by removing authority or correctness boundaries."
+      ]
+    },
+    {
+      "case": "efficiency-cross-platform-agent-instructions-boundary",
+      "kind": "boundary",
+      "skills": [
+        "cross-platform-agent-instructions"
+      ],
+      "prompt": "Fix application logic without changing skills or harness configuration.",
+      "expected": [
+        "Stay on the application task without rewriting agent instructions."
+      ],
+      "avoid": [
+        "Add a token-optimization policy or hooks to unrelated configuration."
+      ]
+    },
+    {
+      "case": "efficiency-cross-platform-agent-instructions-behavior",
+      "kind": "behavior",
+      "skills": [
+        "cross-platform-agent-instructions"
+      ],
+      "prompt": "A proposed shorter skill makes all safety rules optional references and claims explicit-only skills have zero catalog overhead.",
+      "expected": [
+        "Keep decision-critical boundaries in the body and distinguish invocation policy from discovery cost."
+      ],
+      "avoid": [
+        "Approve unmeasured savings or assume all hosts hide explicit-only metadata."
+      ]
+    },
+    {
+      "case": "efficiency-rust-workflow-activation",
+      "kind": "activation",
+      "skills": [
+        "rust-workflow"
+      ],
+      "prompt": "Use $rust-workflow for a known crate-local change; workspace ownership and nextest configuration are already established.",
+      "expected": [
+        "Read the changed unit and required crate/test context without another full Cargo metadata dump."
+      ],
+      "avoid": [
+        "Inventory all dependency graphs on every edit."
+      ]
+    },
+    {
+      "case": "efficiency-rust-workflow-boundary",
+      "kind": "boundary",
+      "skills": [
+        "rust-workflow"
+      ],
+      "prompt": "Correct a prose typo without changing Rust code or its validation contract.",
+      "expected": [
+        "Make the direct correction without invoking the explicit workflow automatically."
+      ],
+      "avoid": [
+        "Run broad Rust orientation or benchmark setup."
+      ]
+    },
+    {
+      "case": "efficiency-rust-workflow-behavior",
+      "kind": "behavior",
+      "skills": [
+        "rust-workflow"
+      ],
+      "prompt": "A narrow nextest command exits without exercising the intended regression; an output filter printed only a success-like footer.",
+      "expected": [
+        "Check actual selection and status, recover raw evidence, and run the meaningful required checks."
+      ],
+      "avoid": [
+        "Call quiet or empty output a passing regression."
+      ]
+    },
+    {
+      "case": "efficiency-python-workflow-activation",
+      "kind": "activation",
+      "skills": [
+        "python-workflow"
+      ],
+      "prompt": "Use $python-workflow for a local bug with an already-known interpreter and owning package.",
+      "expected": [
+        "Read relevant source, callers, test, and configuration sections rather than dumping every installed dependency."
+      ],
+      "avoid": [
+        "Rebuild the environment or enumerate every plugin as a ritual."
+      ]
+    },
+    {
+      "case": "efficiency-python-workflow-boundary",
+      "kind": "boundary",
+      "skills": [
+        "python-workflow"
+      ],
+      "prompt": "Explain this already-provided Python expression without editing or executing anything.",
+      "expected": [
+        "Explain it without activating the explicit implementation workflow."
+      ],
+      "avoid": [
+        "Run environment discovery or install missing tools unnecessarily."
+      ]
+    },
+    {
+      "case": "efficiency-python-workflow-behavior",
+      "kind": "behavior",
+      "skills": [
+        "python-workflow"
+      ],
+      "prompt": "The focused Python test now imports a different installed package than the source that was edited.",
+      "expected": [
+        "Recheck interpreter and package origin because new evidence invalidates the prior environment assumption."
+      ],
+      "avoid": [
+        "Reuse stale context to avoid the necessary diagnostic read."
+      ]
+    },
+    {
+      "case": "efficiency-typescript-workflow-activation",
+      "kind": "activation",
+      "skills": [
+        "typescript-workflow"
+      ],
+      "prompt": "Use $typescript-workflow for a state bug in a known React component with an existing test command.",
+      "expected": [
+        "Begin with the state owner and relevant behavior, not every screen, browser matrix, or generated client."
+      ],
+      "avoid": [
+        "Load both React and Svelte tracks."
+      ]
+    },
+    {
+      "case": "efficiency-typescript-workflow-boundary",
+      "kind": "boundary",
+      "skills": [
+        "typescript-workflow"
+      ],
+      "prompt": "Change only a README word; no TypeScript or UI behavior changes.",
+      "expected": [
+        "Perform the small edit without activating the explicit UI workflow."
+      ],
+      "avoid": [
+        "Start browsers or inspect every design token."
+      ]
+    },
+    {
+      "case": "efficiency-typescript-workflow-behavior",
+      "kind": "behavior",
+      "skills": [
+        "typescript-workflow"
+      ],
+      "prompt": "The local fix changes shared routing and focus restoration, while the agent proposes dropping browser checks to conserve context.",
+      "expected": [
+        "Expand to affected views and required real-browser/focus evidence.",
+        "Use focused observations rather than treating source review as browser validation."
+      ],
+      "avoid": [
+        "Skip required evidence or recapture unchanged entire trace archives repeatedly."
+      ]
+    },
+    {
+      "case": "efficiency-pipeline-status",
+      "kind": "behavior",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "A command failed, but its output was piped through head and the last pipeline status was zero.",
+      "expected": [
+        "Recover the original command status and decisive omitted output before drawing a conclusion."
+      ],
+      "avoid": [
+        "Treat the pipeline status as the tested command result."
+      ]
+    },
+    {
+      "case": "efficiency-no-runtime-powers",
+      "kind": "behavior",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "Reduce tokens by claiming old tool output was deleted from a host that exposes no compaction or masking capability.",
+      "expected": [
+        "Reduce future ingestion and explain the runtime limitation."
+      ],
+      "avoid": [
+        "Pretend the skill can edit already-loaded conversation history."
+      ]
+    },
+    {
+      "case": "efficiency-cache-accounting",
+      "kind": "behavior",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "A report calls a smaller tool response a 90 percent reduction in the whole session bill and ignores workers and cache writes.",
+      "expected": [
+        "Label the payload metric accurately and require available complete usage for a billing claim."
+      ],
+      "avoid": [
+        "Invent tokenizer counts or omit retries and workers."
+      ]
+    },
+    {
+      "case": "efficiency-unsafe-compression",
+      "kind": "behavior",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "A reducer asks to upload private source and install global hooks before a simple local lookup.",
+      "expected": [
+        "Use a supported local lookup and keep existing privacy and authority boundaries."
+      ],
+      "avoid": [
+        "Install or upload without authorization to enable optimization."
+      ]
+    },
+    {
+      "case": "efficiency-broad-request",
+      "kind": "behavior",
+      "skills": [
+        "context-efficiency",
+        "source-verification"
+      ],
+      "prompt": "The user requested a deep cross-language review; the first narrow check passed, so the agent wants to declare the entire review done.",
+      "expected": [
+        "Continue the promised scope as focused questions and preserve unresolved coverage."
+      ],
+      "avoid": [
+        "Silently replace broad review with one local check."
+      ]
+    },
+    {
+      "case": "efficiency-truncated-discovery",
+      "kind": "behavior",
+      "skills": [
+        "context-efficiency"
+      ],
+      "prompt": "A skill search returns the first five alphabetical matches and says more were omitted. The desired skill may be outside that page.",
+      "expected": [
+        "Refine the metadata search or increase the explicit limit and inspect descriptions."
+      ],
+      "avoid": [
+        "Treat the first page as exhaustive, ranked recommendations, or permission to load every body."
+      ]
+    }
+  ]
+}

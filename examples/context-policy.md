@@ -1,0 +1,5 @@
+# Optional repository instruction fragment
+
+For repositories that want this behavior on ordinary tasks without invoking an efficiency skill, adapt the paragraph below into their existing agent instructions. Do not install it globally or replace existing policy automatically. The language/workflow entry skills already carry task-specific versions of these defaults.
+
+> Start with the requested behavior, its owning code, and the relevant test. Reuse established context. Retrieve enough to interpret the affected semantic unit; expand for unclear ownership, incomplete evidence, failing tests, or changed public/safety boundaries. Do not survey unrelated modules, load every skill reference, or delegate a bounded lookup. Keep verbose output retrievable and preserve status and failure evidence. Stop exploration when its question is answered; complete required checks and the requested outcome. This is not permission to skip evidence, narrow requested research, or change model/tool configuration.
